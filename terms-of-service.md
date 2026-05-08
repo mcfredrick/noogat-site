@@ -83,4 +83,4 @@ These Terms are governed by the laws of the State of California, without regard 
 
 ## 12. Contact
 
-Questions about these Terms: **mattcfredrick@gmail.com**
+Questions about these Terms: **support@dayjob.dev**

@@ -71,4 +71,4 @@ We will update this page when this policy changes and update the "Last updated" 
 
 ## Contact
 
-Questions about this policy: **mattcfredrick@gmail.com**
+Questions about this policy: **support@dayjob.dev**
