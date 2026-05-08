@@ -2,7 +2,7 @@
 
 **Last updated: May 7, 2026**
 
-These Terms of Service ("Terms") govern your use of the Aglimmer app ("App"), operated by Matt Fredrick ("we," "us," or "our"). By using the App, you agree to these Terms.
+These Terms of Service ("Terms") govern your use of the Noogat app ("App"), operated by Matt Fredrick ("we," "us," or "our"). By using the App, you agree to these Terms.
 
 ---
 

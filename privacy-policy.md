@@ -2,7 +2,7 @@
 
 **Last updated: May 7, 2026**
 
-This Privacy Policy describes how Aglimmer ("we," "us," or "our") collects, uses, and shares information when you use the Aglimmer app ("App").
+This Privacy Policy describes how Noogat ("we," "us," or "our") collects, uses, and shares information when you use the Noogat app ("App").
 
 ---
 
