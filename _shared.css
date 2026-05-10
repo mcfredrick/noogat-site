@@ -1,23 +1,27 @@
-/* REBRAND: search "Noogat" to rename. Brand colors defined below. */
+/* Brand colors — keep in sync with DESIGN_SYSTEM.md and ios/Idea/DesignSystem.swift */
 :root {
-  --orange: #FF6B2B;
-  --purple: #7C3AED;
-  --bg: #FFFBF5;
-  --surface: #FFF8EF;
-  --text: #1C1B2E;
+  --brand-purple: #7C22D9;
+  --brand-pink: #C91B5B;
+  --brand-green: #5B8C00;
+  --bg: #F8F5FF;
+  --surface: #FFFFFF;
+  --surface-secondary: #F0EBF8;
+  --text: #0D0A1A;
   --text-secondary: #6B7280;
-  --border: #E5E0D8;
+  --border: #E5D9F7;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --orange: #FF8C5A;
-    --purple: #A78BFA;
-    --bg: #1C1B2E;
-    --surface: #252438;
-    --text: #F5F3FF;
+    --brand-purple: #BF5FFF;
+    --brand-pink: #FF5C8D;
+    --brand-green: #A3E635;
+    --bg: #0D0A1A;
+    --surface: #1A1230;
+    --surface-secondary: #241C3D;
+    --text: #F5F0FF;
     --text-secondary: #9CA3AF;
-    --border: #3A3854;
+    --border: #3D2E6B;
   }
 }
 
@@ -42,7 +46,7 @@ header {
   font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--orange), var(--purple));
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,7 +74,7 @@ h1 {
 h2 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--brand-purple);
   margin: 2rem 0 0.5rem;
 }
 
@@ -103,7 +107,7 @@ td {
   border: 1px solid var(--border);
 }
 
-a { color: var(--purple); text-decoration: underline; }
+a { color: var(--brand-purple); text-decoration: underline; }
 
 .caps {
   font-size: 0.875rem;
