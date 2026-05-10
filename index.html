@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<!-- REBRAND: Replace every "Noogat" with the new app name. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Noogat — The Search Engine for Your Thoughts</title>
+  <meta property="og:title" content="Noogat — The Search Engine for Your Thoughts" />
+  <meta property="og:description" content="Capture ideas hands-free with Siri, then find them instantly with AI-powered search." />
+  <meta property="og:image" content="https://mcfredrick.github.io/noogat-site/assets/logo-black.png" />
+  <meta property="og:image:width" content="2000" />
+  <meta property="og:image:height" content="2000" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mcfredrick.github.io/noogat-site/assets/logo-black.png" />
   <link rel="stylesheet" href="_shared.css">
   <style>
     .hero { text-align: center; padding: 4rem 0 2rem; }
+    .hero-logo {
+      width: clamp(80px, 20vw, 120px);
+      height: clamp(80px, 20vw, 120px);
+      border-radius: 22%;
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
     .hero h1 { font-size: 2.5rem; }
     .tagline { color: var(--text-secondary); font-size: 1.1rem; margin: 0.75rem 0 2rem; }
     .cta {
       display: inline-block;
-      background: linear-gradient(135deg, var(--orange), var(--purple));
+      background: linear-gradient(135deg, var(--brand-purple), var(--brand-pink));
       color: #fff;
       text-decoration: none;
       font-weight: 700;
@@ -31,7 +45,10 @@
 <body>
   <main>
     <div class="hero">
-      <p class="wordmark">Noogat</p>
+      <img class="hero-logo" src="assets/logo-transparent.png" alt="Noogat" />
+      <p class="wordmark" style="justify-content: center; margin-bottom: 1rem;">
+        <span class="wordmark-text">Noogat</span>
+      </p>
       <h1>The Search Engine<br>for Your Thoughts</h1>
       <p class="tagline">Capture ideas hands-free with Siri, then find them instantly with AI-powered search.</p>
       <a class="cta" href="#">Download on the App Store</a>
@@ -59,7 +76,7 @@
       &copy; 2026 Noogat &nbsp;·&nbsp;
       <a href="privacy/">Privacy Policy</a> &nbsp;·&nbsp;
       <a href="terms/">Terms of Service</a> &nbsp;·&nbsp;
-      <a href="mailto:support@dayjob.dev">Contact</a>
+      <a href="mailto:support@dayjoy.dev">Contact</a>
     </footer>
   </main>
 </body>
