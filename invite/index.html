@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/noogat-site/assets/logo-black.png">
+  <title>You're invited to Noogat</title>
+  <meta property="og:title" content="You're invited to Noogat" />
+  <meta property="og:description" content="Capture ideas hands-free with Siri, then find them instantly. Your friend gave you a free Pro month." />
+  <meta property="og:image" content="https://mcfredrick.github.io/noogat-site/assets/logo-black.png" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="../_shared.css">
+  <style>
+    .invite-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem auto 2rem;
+      max-width: 420px;
+    }
+    .invite-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      margin: 0 auto 1.25rem;
+      display: block;
+    }
+    .invite-card h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .invite-card .subhead {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+    .pro-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--brand-purple), var(--brand-pink));
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+      -webkit-text-fill-color: #fff;
+    }
+    .code-block {
+      background: var(--surface-secondary);
+      border: 2px dashed var(--brand-purple);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+    .code-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+    .code-value {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--brand-purple);
+      font-variant-numeric: tabular-nums;
+    }
+    .code-hint {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.4rem;
+    }
+    .appstore-btn {
+      display: inline-block;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 1rem;
+      -webkit-text-fill-color: var(--bg);
+      width: 100%;
+    }
+    .appstore-btn:hover { opacity: 0.85; }
+    .features {
+      display: grid;
+      gap: 0.75rem;
+      margin: 2rem auto;
+      max-width: 420px;
+    }
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .feature-icon { font-size: 1.25rem; flex-shrink: 0; }
+    .feature h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .feature p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+    .no-code { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="invite-card" id="invite-card">
+      <img class="invite-logo" src="/noogat-site/assets/logo-transparent.png" alt="Noogat" />
+      <h1>Your friend invited you to Noogat</h1>
+      <p class="subhead">Capture ideas hands-free with Siri, then find them instantly with AI-powered search.</p>
+      <div class="pro-badge">🎁 1 free Pro month included</div>
+      <div class="code-block">
+        <div class="code-label">Your referral code</div>
+        <div class="code-value" id="code-display">——</div>
+        <div class="code-hint">Enter this code in the Noogat app after signing up</div>
+      </div>
+      <a class="appstore-btn" href="#" id="appstore-link">Download Noogat — Free</a>
+    </div>
+
+    <div class="no-code" id="no-code-card">
+      <div class="invite-card">
+        <img class="invite-logo" src="/noogat-site/assets/logo-transparent.png" alt="Noogat" />
+        <h1>Welcome to Noogat</h1>
+        <p class="subhead">Capture ideas hands-free with Siri, then find them instantly with AI-powered search.</p>
+        <a class="appstore-btn" href="#" id="appstore-link-2">Download Noogat — Free</a>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🎙️</div>
+        <div>
+          <h3>Siri-native capture</h3>
+          <p>Say "Hey Siri, I have an Idea" with your phone in your pocket. No app to open.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏷️</div>
+        <div>
+          <h3>AI auto-tagging</h3>
+          <p>Every Noogat is automatically tagged so you can find it later.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <div>
+          <h3>Semantic search</h3>
+          <p>Finds what you mean, not just what you typed.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 Noogat &nbsp;·&nbsp;
+      <a href="../privacy/">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="../terms/">Terms of Service</a>
+    </footer>
+  </main>
+
+  <script>
+    const code = new URLSearchParams(window.location.search).get('code');
+    if (code) {
+      document.getElementById('code-display').textContent = code.toUpperCase();
+    } else {
+      document.getElementById('invite-card').style.display = 'none';
+      document.getElementById('no-code-card').style.display = 'block';
+    }
+    // TODO: replace # with App Store URL once live
+  </script>
+</body>
+</html>
