@@ -74,6 +74,21 @@
       color: var(--text-secondary);
       margin-top: 0.4rem;
     }
+    .copy-btn {
+      margin-top: 0.75rem;
+      background: var(--brand-purple);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      -webkit-text-fill-color: #fff;
+      transition: opacity 0.15s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .copy-btn.copied { background: var(--brand-pink); }
     .appstore-btn {
       display: inline-block;
       background: var(--text);
@@ -125,6 +140,7 @@
         <div class="code-label">Your referral code</div>
         <div class="code-value" id="code-display">——</div>
         <div class="code-hint">Enter this code in the Noogat app after signing up</div>
+        <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy code</button>
       </div>
       <a class="appstore-btn" href="#" id="appstore-link">Download Noogat — Free</a>
     </div>
@@ -176,6 +192,15 @@
     } else {
       document.getElementById('invite-card').style.display = 'none';
       document.getElementById('no-code-card').style.display = 'block';
+    }
+
+    function copyCode() {
+      const btn = document.getElementById('copy-btn');
+      navigator.clipboard.writeText(code.toUpperCase()).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy code'; btn.classList.remove('copied'); }, 2000);
+      });
     }
     // TODO: replace # with App Store URL once live
   </script>
