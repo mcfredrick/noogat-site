@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "SB654BCHZ3.dev.dayjob.noogat",
+        "paths": ["/invite/*"]
+      }
+    ]
+  }
+}
