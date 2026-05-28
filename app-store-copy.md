@@ -50,10 +50,10 @@ Most capture tools require you to open an app, tap a button, wait for a recordin
 - Works hands-free, screen-off, anytime
 
 **Free & Pro:**
-Noogat is free to try — capture your first 25 ideas at no cost. Upgrade to Noogat Pro for unlimited captures, with a 14-day free trial.
+Noogat is free to use — capture unlimited ideas at no cost. Upgrade to Noogat Pro for advanced AI features including semantic search, with a 14-day free trial.
 
 - Monthly: $4.99/month
-- Annual: $39.99/year (save 33%)
+- Annual: $49.99/year
 
 **Built for people whose best thinking happens away from a desk.**
 ADHD professionals who lose ideas between thought and screen. Commuters who can't type while driving. Creatives who need to capture inspiration on the spot. Anyone who's ever said "I had such a good idea earlier — what was it?"
