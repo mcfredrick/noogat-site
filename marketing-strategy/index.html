@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noogat — Core Marketing Strategy</title>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e8e4dc;
+      --text: #1a1a18;
+      --muted: #6b6860;
+      --accent: #5b4cdb;
+      --accent-light: #ede9ff;
+      --tag-green: #d4f0e0;
+      --tag-green-text: #1a6640;
+      --tag-orange: #fde8cc;
+      --tag-orange-text: #8a4500;
+      --tag-blue: #dceeff;
+      --tag-blue-text: #0a4a80;
+      --tag-pink: #fde0ee;
+      --tag-pink-text: #7a1a4a;
+      --max-width: 860px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .app-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 24px 0 8px;
+      color: var(--text);
+    }
+
+    .section h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .section p {
+      font-size: 15px;
+      color: #2a2a28;
+      margin-bottom: 12px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Highlight box */
+    .insight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 15px;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* Tags / pills */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .tag {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .tag-green  { background: var(--tag-green);  color: var(--tag-green-text); }
+    .tag-orange { background: var(--tag-orange); color: var(--tag-orange-text); }
+    .tag-blue   { background: var(--tag-blue);   color: var(--tag-blue-text); }
+    .tag-pink   { background: var(--tag-pink);   color: var(--tag-pink-text); }
+
+    /* Competitor table */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
+    .comp-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    .comp-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table tr.noogat td {
+      background: var(--accent-light);
+      font-weight: 600;
+    }
+
+    .win  { color: #1a6640; }
+    .lose { color: #8a1a1a; }
+    .mid  { color: #6b4a00; }
+
+    /* Differentiator cards */
+    .diff-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .diff-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .diff-card .number {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .diff-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .diff-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Freelancer section */
+    .hire-cards {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .hire-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    .hire-card .priority {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hire-card .priority.high   { color: #1a6640; }
+    .hire-card .priority.medium { color: #6b4a00; }
+    .hire-card .priority.low    { color: var(--muted); }
+
+    .hire-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hire-card p {
+      font-size: 14px;
+      color: #2a2a28;
+      margin-bottom: 6px;
+    }
+
+    .hire-card .budget-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      background: var(--tag-green);
+      color: var(--tag-green-text);
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+
+    /* DIY list */
+    .diy-list {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .diy-list li {
+      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .diy-list li:last-child {
+      border-bottom: none;
+    }
+
+    .diy-list .check {
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 24px 20px; }
+      .header h1 { font-size: 28px; }
+      .diff-cards { grid-template-columns: 1fr; }
+      .comp-table { font-size: 12px; }
+      .comp-table th, .comp-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="app-label">Noogat</div>
+      <h1>Core Marketing Strategy</h1>
+      <div class="tagline">"The Search Engine for Your Thoughts"</div>
+      <div class="meta">Prepared May 2026 &nbsp;·&nbsp; Bootstrap indie app &nbsp;·&nbsp; iOS</div>
+    </div>
+
+    <!-- Target Market -->
+    <div class="section">
+      <div class="section-label">01</div>
+      <h2>Target Market</h2>
+
+      <h3>Primary — The ADHD Professional</h3>
+      <div class="tags">
+        <span class="tag tag-blue">r/ADHD (3M members)</span>
+        <span class="tag tag-blue">Developers</span>
+        <span class="tag tag-blue">Designers</span>
+        <span class="tag tag-blue">Founders</span>
+        <span class="tag tag-blue">Consultants</span>
+      </div>
+      <p>
+        People with ADHD — diagnosed or self-identified — in cognitively demanding roles. Their minds move fast and generate ideas constantly, but the friction between "thought occurs" and "thought captured" is where ideas die. They're not looking for another note-taking app. They've already tried Notion, Apple Notes, Bear, and Obsidian and found them all too slow.
+      </p>
+      <p>
+        This audience is vocal, tight-knit, and evangelical about tools that actually work for them. One authentic founder post in r/ADHD can drive hundreds of downloads. They are the launch wedge.
+      </p>
+
+      <h3>Secondary — The Busy Thinker</h3>
+      <div class="tags">
+        <span class="tag tag-orange">Commuters</span>
+        <span class="tag tag-orange">Deep workers</span>
+        <span class="tag tag-orange">Parents</span>
+        <span class="tag tag-orange">Professionals in flow state</span>
+      </div>
+      <p>
+        Non-ADHD people who are simply overloaded. They've experienced the frustration of a good idea evaporating mid-meeting or mid-drive. They find Noogat via App Store search and convert because the use case is immediately obvious.
+      </p>
+      <p>
+        Grow with community first (ADHD), scale with search second (Busy Thinker). The ADHD community provides trust and word-of-mouth; the broader audience provides organic search volume.
+      </p>
+    </div>
+
+    <!-- Value Proposition -->
+    <div class="section">
+      <div class="section-label">02</div>
+      <h2>Value Proposition</h2>
+
+      <h3>The Problem</h3>
+      <p>
+        Your brain generates its best ideas at the worst moments — mid-meeting, mid-conversation, mid-drive, mid-focus. The standard options are bad: follow the out thought and lose your focus, or ignore it and lose the idea. Most people have learned to just lose the idea.
+      </p>
+
+      <div class="insight">
+        "In thoughts" are what you're focused on. "Out thoughts" are everything else your brain throws at you while you're trying to concentrate. For the ADHD brain especially, an uncaptured out thought doesn't just disappear — it competes for attention and derails the task at hand.
+      </div>
+
+      <h3>The Insight</h3>
+      <p>
+        That tradeoff is false. What people actually need is a way to make the out thought feel <em>safe</em> — captured, organized, findable — in under three seconds, without breaking what they were doing. When a thought feels safe, your brain lets go of it. You stay focused <em>and</em> you keep the idea. Have your cake and eat it too.
+      </p>
+
+      <h3>What Noogat Does</h3>
+      <p>
+        Say "Hey Siri, I have an Idea" without touching your phone. The thought is tagged automatically by AI, stored searchably, and waiting for you when you're ready. You stay focused. You keep the idea. No tradeoff.
+      </p>
+
+      <h3>Why the Second Half Matters</h3>
+      <p>
+        Capture without retrieval is just a graveyard. AI auto-tagging and semantic search mean you can find "that pricing idea from last Tuesday while driving" three weeks later — without remembering any specific words. That's what makes the "you'll find it later" promise credible. And it's what separates Noogat from a voice memo.
+      </p>
+    </div>
+
+    <!-- Competitive Analysis -->
+    <div class="section">
+      <div class="section-label">03</div>
+      <h2>Competitive Analysis</h2>
+      <p>Most competitors are solving a different problem. The landscape splits clearly into two camps: apps with easy capture but dumb storage, and apps with smart organization but high-friction capture. Nobody is doing both.</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>App</th>
+            <th>Capture Friction</th>
+            <th>AI Organization</th>
+            <th>ADHD Positioning</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="noogat">
+            <td>✦ Noogat</td>
+            <td class="win">Zero — Siri, locked screen</td>
+            <td class="win">Auto-tags + semantic search</td>
+            <td class="win">Yes — authentic</td>
+            <td>Only app that does all three</td>
+          </tr>
+          <tr>
+            <td>Apple Voice Memos</td>
+            <td class="win">Low</td>
+            <td class="lose">None</td>
+            <td class="lose">None</td>
+            <td>Untagged audio graveyard</td>
+          </tr>
+          <tr>
+            <td>Apple Notes</td>
+            <td class="mid">Medium</td>
+            <td class="lose">None</td>
+            <td class="lose">None</td>
+            <td>Unformatted text walls</td>
+          </tr>
+          <tr>
+            <td>Drafts</td>
+            <td class="win">Low — widget/Siri</td>
+            <td class="lose">None</td>
+            <td class="lose">None</td>
+            <td>Text processing tool, not idea management; no AI; power user niche</td>
+          </tr>
+          <tr>
+            <td>Notion / Obsidian</td>
+            <td class="lose">High — must open app</td>
+            <td class="mid">Manual structure only</td>
+            <td class="lose">None</td>
+            <td>Processing tools, not capture tools; high setup cost</td>
+          </tr>
+          <tr>
+            <td>Otter.ai / Whisper</td>
+            <td class="win">Low</td>
+            <td class="lose">Transcription only</td>
+            <td class="lose">None</td>
+            <td>Meeting notes use case; no idea organization</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight" style="margin-top: 24px;">
+        The gap nobody is filling: Siri-native, zero-friction capture that also makes retrieval intelligent. Competitors either nail capture with dumb storage, or nail organization with high-friction capture. Noogat is the only app in the middle.
+      </div>
+    </div>
+
+    <!-- Differentiation -->
+    <div class="section">
+      <div class="section-label">04</div>
+      <h2>Why Noogat Wins</h2>
+      <p>The competitive moat isn't any single feature. It's the combination of three things no competitor does together — plus an authentic founder story that can't be manufactured.</p>
+
+      <div class="diff-cards">
+        <div class="diff-card">
+          <div class="number">01</div>
+          <h4>Zero-Friction Capture</h4>
+          <p>"Hey Siri, I have an Idea" — phone in pocket, screen locked. No unlock, no app switch, no typing. Apple can't copy this without building their own idea management layer.</p>
+        </div>
+        <div class="diff-card">
+          <div class="number">02</div>
+          <h4>Intelligence That Earns Trust</h4>
+          <p>Auto-tagging organizes thoughts before you look at them again. Semantic search finds "that pricing idea from last week" without remembering the exact words you used.</p>
+        </div>
+        <div class="diff-card">
+          <div class="number">03</div>
+          <h4>Designed for the ADHD Brain</h4>
+          <p>Colorful, scannable, tag-filtered, no hierarchy to maintain. Built for ADHD users, but it's just good UX — championed by a community of 3M+ vocal users.</p>
+        </div>
+        <div class="diff-card">
+          <div class="number">04</div>
+          <h4>Authentic Founder Story</h4>
+          <p>Built by someone who experiences the problem. In a space full of generic productivity apps, credibility with the ADHD community can't be faked — and it drives word-of-mouth.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Freelancers & Budget -->
+    <div class="section">
+      <div class="section-label">05</div>
+      <h2>Freelancers, Budget &amp; What You Can Do Yourself</h2>
+      <p>For a bootstrap solo launch, the goal is high learning value and high ROI — not outsourcing everything. Here's the priority order.</p>
+
+      <div class="hire-cards">
+
+        <div class="hire-card">
+          <div class="priority high">Hire First — Highest ROI</div>
+          <h4>Copywriter with ADHD / Mental Health Community Experience</h4>
+          <p>Everything else — ASO, social media, paid ads — depends on having the right words first. Good Noogat copy isn't about listing features. It's about articulating the "out thought" insight in a way that makes someone say <em>"that's exactly what happens to me."</em></p>
+          <p><strong>Deliverables to ask for:</strong> App Store listing copy (title, subtitle, description, keywords), landing page copy, 3–5 social post templates.</p>
+          <p><strong>Where to find them:</strong> Contra, Toptal, or post in ADHD/productivity creator communities asking for a copywriter who's personally in the space.</p>
+          <span class="budget-pill">$500–$1,500 one-time</span>
+        </div>
+
+        <div class="hire-card">
+          <div class="priority medium">Hire Second — Month 2+</div>
+          <h4>ASO (App Store Optimization) Specialist</h4>
+          <p>App Store Optimization is technical but learnable. Once you have real copy, real reviews, and a conversion rate to work from, a one-time ASO audit can meaningfully improve organic installs. Don't do this before you have data — there's nothing to optimize yet.</p>
+          <p><strong>Deliverables to ask for:</strong> Keyword audit, competitor keyword gaps, metadata recommendations, screenshot copy review.</p>
+          <span class="budget-pill">$300–$600 one-time</span>
+        </div>
+
+        <div class="hire-card">
+          <div class="priority low">Skip For Now</div>
+          <h4>Social Media Management, Paid Ads (Meta/Google/TikTok)</h4>
+          <p>Poor ROI for an indie productivity app pre-traction. Social management burns budget without a proven message. Meta/Google ads are crushed by iOS privacy changes. Only revisit Apple Search Ads after 50+ reviews and a baseline conversion rate — you need data before you can calculate whether paid CAC is profitable.</p>
+        </div>
+
+      </div>
+
+      <h3 style="margin-top: 28px;">What You Can Do Yourself (Free, High-Impact)</h3>
+      <ul class="diy-list">
+        <li>
+          <span class="check">→</span>
+          <div><strong>Post in r/ADHD — your single highest-leverage launch action.</strong> Not an ad. A founder story: "I have ADHD, I kept losing ideas mid-meeting, so I built this." r/ADHD has 3M members and responds extremely well to authentic posts from people in the community.</div>
+        </li>
+        <li>
+          <span class="check">→</span>
+          <div><strong>Post on Indie Hackers — building in public.</strong> Write up your launch story and early numbers honestly. The IH audience overlaps heavily with your target user. Other indie founders become evangelists.</div>
+        </li>
+        <li>
+          <span class="check">→</span>
+          <div><strong>App Store keyword research.</strong> Use AppFollow or Sensor Tower's free tier to find what ADHD productivity seekers actually search. Takes an afternoon and compounds forever. Do this before hiring an ASO specialist — you'll get more out of them if you understand the basics.</div>
+        </li>
+        <li>
+          <span class="check">→</span>
+          <div><strong>Personal outreach to 20–50 ADHD professionals.</strong> DM people in r/ADHD who've posted about losing thoughts or struggling with note-taking. Offer a TestFlight link. These early users become your most loyal evangelists.</div>
+        </li>
+        <li>
+          <span class="check">→</span>
+          <div><strong>Record a 60-second demo video.</strong> Scene 1: locked phone → "Hey Siri, I have an Idea" → "got it!" Scene 2: colorful tagged list. Scene 3: semantic search finding an old idea. Shoot on iPhone, edit in CapCut. This video is the foundation for every future marketing asset.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      Noogat · Core Marketing Strategy · May 2026<br/>
+      Bootstrap indie project · iOS · noogat.app
+    </div>
+
+  </div>
+</body>
+</html>
