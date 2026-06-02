@@ -449,7 +449,17 @@
         text-align: center;
       }
       .hero-brand { justify-content: center; }
-      .hero-screenshot img { max-width: 280px; }
+      .hero-screenshot {
+        order: -1;     /* screenshot above text on mobile */
+      }
+      .hero-screenshot img {
+        max-width: 240px;
+        transform: rotate(1deg);
+      }
+      .hero-stats { gap: 8px; }
+      .hero-stat { min-height: 100px; padding: 0.875rem 0.875rem 0.75rem; }
+      .hero-stat-value { font-size: 1.4rem; }
+      .hero-stat-icon { font-size: 1.4rem; }
 
       /* Hey Siri: stack columns then screenshot */
       .siri-body { flex-direction: column; }
