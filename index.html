@@ -126,6 +126,45 @@
       height: auto;
     }
 
+    /* --- Hey Siri Section --- */
+    .siri-section {
+      background: var(--brand-purple);
+      color: #fff;
+      padding: 5rem 0;
+    }
+    .siri-quote {
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin: 0 0 3rem;
+      quotes: none;
+    }
+    .siri-body {
+      display: flex;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+    .siri-columns {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .siri-columns p {
+      opacity: 0.9;
+      line-height: 1.75;
+      margin: 0;
+      font-size: 0.975rem;
+    }
+    .siri-screenshot { flex: 0 0 auto; }
+    .siri-screenshot img {
+      border-radius: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      max-width: 100%;
+      height: auto;
+    }
+
     /* Sections added in subsequent tasks */
   </style>
 
@@ -157,6 +196,24 @@
           <img src="assets/screenshots/screenshot-01-voice.png"
                alt="Noogat app showing Siri voice capture in action — the app is listening and saving a new noogat hands-free"
                width="310" height="674" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEY SIRI -->
+  <section class="siri-section">
+    <div class="container">
+      <blockquote class="siri-quote">"Hey Siri, I have a Noogat."</blockquote>
+      <div class="siri-body">
+        <div class="siri-columns">
+          <p>You've got a busy brain, and your best ideas always seem to come at the worst times: in the shower, on the road, or in the middle of some other task. Whether you've just come up with the perfect concept for your next big project or you simply need to remember to add "milk" to the grocery list, you need a way to easily capture those thoughts before they escape forever.</p>
+          <p>With Noogat for iOS, you can instantly record your notes using Siri voice command. No unlocking your screen, no opening an app, no losing your focus. With semantic search capability and auto-tagging, you can find "that song idea from last Tuesday" three weeks later — without remembering any specific words. No more digging through garbled voice memos or note graveyards.</p>
+        </div>
+        <div class="siri-screenshot">
+          <img src="assets/screenshots/screenshot-03-home.png"
+               alt="Noogat home feed showing multiple captured ideas with colorful AI-generated tags"
+               width="260" height="564" loading="lazy">
         </div>
       </div>
     </div>
