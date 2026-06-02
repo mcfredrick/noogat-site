@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# AI search crawlers — explicitly permitted for generative search indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+Sitemap: https://noogat.app/sitemap.xml
