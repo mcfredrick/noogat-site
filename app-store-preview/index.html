@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Noogat – App Store Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background: #0D0A1A;
+    color: #f0ebf8;
+    min-height: 100vh;
+  }
+
+  /* ── Page chrome ── */
+  .page-header {
+    background: #1A1230;
+    border-bottom: 1px solid #3D2E6B;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .page-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #BF5FFF, #7C22D9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #A3E635;
+  }
+  .page-header-title {
+    font-size: 14px;
+    color: #a890d0;
+    font-weight: 500;
+  }
+  .draft-badge {
+    background: #241C3D;
+    border: 1px solid #3D2E6B;
+    color: #BF5FFF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── Center column ── */
+  .page-body {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6b5a9e;
+    margin-bottom: 10px;
+  }
+
+  /* ── App Store card ── */
+  .store-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    color: #1c1c1e;
+  }
+
+  /* Status bar */
+  .status-bar {
+    background: #fff;
+    padding: 14px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1c1c1e;
+  }
+  .status-icons { display: flex; gap: 6px; align-items: center; font-size: 12px; }
+
+  /* Nav */
+  .store-nav {
+    background: #fff;
+    padding: 8px 16px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 0.5px solid #e5e5ea;
+  }
+  .nav-back { color: #007aff; font-size: 16px; }
+  .nav-spacer { flex: 1; }
+  .nav-share { color: #007aff; font-size: 18px; }
+
+  /* App header */
+  .app-header {
+    padding: 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #fff;
+  }
+  .app-icon {
+    width: 110px;
+    height: 110px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #1A1230 0%, #0D0A1A 100%);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .app-meta { flex: 1; min-width: 0; }
+  .app-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 3px;
+    color: #1c1c1e;
+  }
+  .app-subtitle {
+    font-size: 13px;
+    color: #8e8e93;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .get-btn {
+    background: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 7px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: default;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  .in-app-tag {
+    font-size: 11px;
+    color: #8e8e93;
+    display: block;
+  }
+
+  /* Ratings row */
+  .rating-row {
+    background: #fff;
+    border-top: 0.5px solid #e5e5ea;
+    padding: 8px 0;
+    display: flex;
+  }
+  .rating-cell {
+    flex: 1;
+    text-align: center;
+    border-right: 0.5px solid #e5e5ea;
+    padding: 4px 6px;
+  }
+  .rating-cell:last-child { border-right: none; }
+  .rating-num { font-size: 17px; font-weight: 700; color: #1c1c1e; }
+  .rating-stars { color: #8e8e93; font-size: 10px; letter-spacing: -1px; }
+  .rating-sub { font-size: 10px; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.2px; margin-top: 1px; }
+
+  /* Promo text */
+  .promo-band {
+    background: #fff;
+    border-top: 0.5px solid #e5e5ea;
+    padding: 11px 16px;
+    font-size: 13.5px;
+    color: #3c3c43;
+    line-height: 1.5;
+  }
+
+  /* Screenshots */
+  .screenshots-wrap {
+    background: #fff;
+    border-top: 0.5px solid #e5e5ea;
+    padding: 12px 0 12px 14px;
+  }
+  .screenshots-device-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    padding-right: 14px;
+  }
+  .screenshots-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-right: 14px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .screenshots-scroll::-webkit-scrollbar { display: none; }
+  .screenshot-frame {
+    flex-shrink: 0;
+    width: 170px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    background: #000;
+  }
+  .screenshot-frame img { width: 100%; display: block; }
+
+  /* Description */
+  .desc-wrap {
+    background: #fff;
+    border-top: 0.5px solid #e5e5ea;
+    padding: 12px 16px;
+  }
+  .desc-text {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #1c1c1e;
+    overflow: hidden;
+    max-height: 110px;
+    white-space: pre-wrap;
+    transition: max-height 0.3s ease;
+  }
+  .desc-text.expanded { max-height: 3000px; }
+  .more-btn {
+    color: #007aff;
+    font-size: 13.5px;
+    cursor: pointer;
+    margin-top: 5px;
+    display: inline-block;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .dev-credit {
+    font-size: 12px;
+    color: #8e8e93;
+    margin-top: 10px;
+  }
+
+  /* Info */
+  .info-wrap {
+    background: #fff;
+    border-top: 0.5px solid #e5e5ea;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 12px 16px 16px;
+  }
+  .info-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #1c1c1e; }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 0.5px solid #e5e5ea;
+    font-size: 13px;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: #8e8e93; }
+  .info-value { font-weight: 500; color: #1c1c1e; text-align: right; }
+
+  /* ── Notes section ── */
+  .notes-section {
+    margin-top: 28px;
+  }
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .note-card {
+    background: #1A1230;
+    border: 1px solid #3D2E6B;
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .note-card.full-width {
+    grid-column: 1 / -1;
+  }
+  .note-field {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #BF5FFF;
+    margin-bottom: 4px;
+  }
+  .note-value {
+    font-size: 13px;
+    color: #f0ebf8;
+    line-height: 1.4;
+  }
+  .char-count {
+    font-size: 10px;
+    color: #6b5a9e;
+    margin-top: 3px;
+  }
+  .char-ok { color: #A3E635; }
+  .char-warn { color: #FF5C8D; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-header-left">
+    <div class="logo-mark">N</div>
+    <span class="page-header-title">App Store Preview — noogat.app</span>
+  </div>
+  <span class="draft-badge">Draft</span>
+</div>
+
+<div class="page-body">
+
+  <p class="section-label" style="margin-bottom:14px;">Proposed listing</p>
+
+  <!-- App Store card -->
+  <div class="store-card">
+
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-icons">
+        <span>●●●</span>
+        <span style="font-size:11px;">WiFi</span>
+        <span>🔋</span>
+      </div>
+    </div>
+
+    <div class="store-nav">
+      <span class="nav-back">‹ Search</span>
+      <span class="nav-spacer"></span>
+      <span class="nav-share">↑</span>
+    </div>
+
+    <div class="app-header">
+      <div class="app-icon">💡</div>
+      <div class="app-meta">
+        <div class="app-name">Noogat – AI Idea Capture</div>
+        <div class="app-subtitle">Idea Capture &amp; AI Organization</div>
+        <div class="get-btn">GET</div>
+        <span class="in-app-tag">In-App Purchases</span>
+      </div>
+    </div>
+
+    <div class="rating-row">
+      <div class="rating-cell">
+        <div class="rating-num">4.8</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-sub">Ratings</div>
+      </div>
+      <div class="rating-cell">
+        <div class="rating-num">#—</div>
+        <div class="rating-sub">Productivity</div>
+      </div>
+      <div class="rating-cell">
+        <div class="rating-num">4+</div>
+        <div class="rating-sub">Age</div>
+      </div>
+      <div class="rating-cell">
+        <div class="rating-num">Free</div>
+        <div class="rating-sub">Price</div>
+      </div>
+    </div>
+
+    <div class="promo-band">
+      The thought inbox that organizes itself. Say "Hey Siri, I have a Noogat" — no app to open, no system to maintain. AI finds your ideas when you need them.
+    </div>
+
+    <div class="screenshots-wrap">
+      <div class="screenshots-device-label">iPhone</div>
+      <div class="screenshots-scroll">
+        <div class="screenshot-frame">
+          <img src="screenshots/01_voice.png" alt="Siri capture" />
+        </div>
+        <div class="screenshot-frame">
+          <img src="screenshots/02_search.png" alt="AI search" />
+        </div>
+        <div class="screenshot-frame">
+          <img src="screenshots/03_home.png" alt="Home feed" />
+        </div>
+      </div>
+    </div>
+
+    <div class="desc-wrap">
+      <div class="desc-text" id="descText">Your best ideas always come at the worst times. In the shower. On the road. In the middle of something else. And then they're gone.
+
+Noogat is a thought inbox. Say "Hey Siri, I have a Noogat" — no unlocking your screen, no opening an app, no losing your focus. Your idea is captured in seconds and waiting for you when you need it.
+
+No folders. No filing system. No maintenance.
+
+When you need that idea again, just search. Noogat's AI understands what you meant, not just what you typed — so you can find "that song idea from last Tuesday" weeks later without remembering a single word.
+
+FEATURES
+
+· Siri-native capture — say it, and it's saved. No shortcuts to configure.
+· AI auto-tagging — every idea is automatically organized. You do nothing.
+· Keyword &amp; semantic search — find anything, even if you've forgotten the words.
+· Tag filtering — browse by topic when you want to explore, not just retrieve.
+· Edit anywhere — refine ideas directly in the app.
+· Free to start — core capture and search are always free.
+
+NOOGAT PRO
+Unlock semantic search and bulk export for $5/month or $49.99/year.
+
+Your ideas are yours. We will never sell your data or show you ads.</div>
+      <span class="more-btn" id="moreBtn" onclick="toggleDesc()">more</span>
+      <div class="dev-credit">DayJobDevelopment LLC</div>
+    </div>
+
+    <div class="info-wrap">
+      <div class="info-title">Information</div>
+      <div class="info-row">
+        <span class="info-label">Seller</span>
+        <span class="info-value">DayJobDevelopment LLC</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Category</span>
+        <span class="info-value">Productivity</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Age Rating</span>
+        <span class="info-value">4+</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Copyright</span>
+        <span class="info-value">© 2026 DayJobDevelopment LLC</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Price</span>
+        <span class="info-value">Free</span>
+      </div>
+    </div>
+
+  </div><!-- /store-card -->
+
+  <!-- Metadata reference -->
+  <div class="notes-section">
+    <p class="section-label" style="margin-bottom:10px;">Metadata reference</p>
+    <div class="notes-grid">
+
+      <div class="note-card full-width">
+        <div class="note-field">App Name <span class="char-count char-ok">(24 / 30 chars)</span></div>
+        <div class="note-value">Noogat – AI Idea Capture</div>
+      </div>
+
+      <div class="note-card full-width">
+        <div class="note-field">Subtitle <span class="char-count char-ok">(30 / 30 chars)</span></div>
+        <div class="note-value">Idea Capture &amp; AI Organization</div>
+      </div>
+
+      <div class="note-card full-width">
+        <div class="note-field">Promotional Text <span class="char-count char-ok">(153 / 170 chars — updatable without re-review)</span></div>
+        <div class="note-value">The thought inbox that organizes itself. Say "Hey Siri, I have a Noogat" — no app to open, no system to maintain. AI finds your ideas when you need them.</div>
+      </div>
+
+      <div class="note-card full-width">
+        <div class="note-field">Keywords <span class="char-count char-ok">(84 / 100 chars)</span></div>
+        <div class="note-value" style="font-family: monospace; font-size: 12px;">siri, voice, quick notes, thought, smart notes, shortcuts, inbox, retrieve, recall, organize</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-field">Category</div>
+        <div class="note-value">Productivity</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-field">Price</div>
+        <div class="note-value">Free + IAP<br><span style="font-size:11px; color:#a890d0;">Pro: $5/mo · $49.99/yr</span></div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<script>
+  function toggleDesc() {
+    const text = document.getElementById('descText');
+    const btn = document.getElementById('moreBtn');
+    const expanded = text.classList.toggle('expanded');
+    btn.textContent = expanded ? 'less' : 'more';
+  }
+</script>
+</body>
+</html>
