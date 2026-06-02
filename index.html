@@ -313,6 +313,28 @@
       color: var(--text-secondary);
       margin: 0;
     }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      /* Hero: stack text above screenshot */
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-brand { justify-content: center; }
+      .hero-screenshot img { max-width: 280px; }
+
+      /* Hey Siri: stack columns then screenshot */
+      .siri-body { flex-direction: column; }
+      .siri-columns { grid-template-columns: 1fr; gap: 1.25rem; }
+      .siri-screenshot { display: none; }
+
+      /* Features: single column */
+      .features-grid { grid-template-columns: 1fr; }
+
+      /* Footer links: wrap naturally */
+      .footer-links { flex-direction: column; align-items: center; gap: 0.75rem; }
+    }
   </style>
 
   <!-- Privacy-friendly analytics -->
