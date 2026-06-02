@@ -283,6 +283,11 @@
       line-height: 1.75;
       margin: 0;
       font-size: 0.975rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      backdrop-filter: blur(4px);
     }
     .siri-screenshot { flex: 0 0 auto; }
     .siri-screenshot img {
@@ -316,6 +321,11 @@
       border-radius: 16px;
       padding: 1.75rem;
       text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(124, 34, 217, 0.15);
     }
     .feature-icon-wrap {
       width: 64px;
@@ -358,6 +368,25 @@
     .pro-section {
       background: var(--surface);
       padding: 5rem 0;
+    }
+    .pro-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 560px;
+      position: relative;
+    }
+    .pro-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--brand-purple), var(--brand-pink));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
     .pro-title {
       font-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -403,10 +432,15 @@
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--brand-purple);
-      margin-top: 1.75rem;
+      margin-top: 0;
       margin-bottom: 0.4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
     }
-    .faq-list dt:first-child { margin-top: 0; }
+    .faq-list dt:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
     .faq-list dd {
       margin: 0;
       color: var(--text);
@@ -613,16 +647,18 @@
   <!-- NOOGAT PRO -->
   <section class="pro-section">
     <div class="container">
-      <h2 class="pro-title">Noogat Pro</h2>
-      <p class="pro-body">
-        The basic level of Noogat is completely free to use. Upgrade to the <strong>Pro tier</strong> for
-        <strong>$4.99/month</strong> or <strong>$49.99/year</strong> to get advanced features:
-      </p>
-      <ul class="pro-features">
-        <li><span class="pro-emoji">✨</span> Semantic search</li>
-        <li><span class="pro-emoji">📦</span> Bulk export noogats</li>
-        <li><span class="pro-emoji">🔗</span> Related noogats</li>
-      </ul>
+      <div class="pro-card">
+        <h2 class="pro-title">Noogat Pro</h2>
+        <p class="pro-body">
+          The basic level of Noogat is completely free to use. Upgrade to the <strong>Pro tier</strong> for
+          <strong>$4.99/month</strong> or <strong>$49.99/year</strong> to get advanced features:
+        </p>
+        <ul class="pro-features">
+          <li><span class="pro-emoji">✨</span> Semantic search</li>
+          <li><span class="pro-emoji">📦</span> Bulk export noogats</li>
+          <li><span class="pro-emoji">🔗</span> Related noogats</li>
+        </ul>
+      </div>
       <!-- Pro features source of truth: claude-inbox/docs/features.json (widgets excluded — not yet released) -->
     </div>
   </section>
