@@ -179,8 +179,7 @@ Links:
 <meta name="twitter:image" content="https://noogat.app/assets/screenshots/screenshot-01-voice.png">
 
 <!-- Apple Smart App Banner -->
-<meta name="apple-itunes-app" content="app-id=REPLACE_WITH_APP_STORE_ID">
-<!-- ⚠️ App Store numeric ID required above — find it in App Store Connect under App Information → Apple ID -->
+<meta name="apple-itunes-app" content="app-id=6768415092">
 ```
 
 ### Structured data (JSON-LD)
