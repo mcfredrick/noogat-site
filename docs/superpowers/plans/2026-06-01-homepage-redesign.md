@@ -772,3 +772,202 @@ Verify each section top to bottom:
 - [ ] **Step 3: Check browser console**
 
 No 404 errors for images or CSS. No JS errors.
+
+---
+
+## Task 10: robots.txt — Allow All Crawlers Including AI Bots
+
+**Files:**
+- Create: `noogat-site/robots.txt`
+
+No `robots.txt` currently exists. Add one that explicitly permits all crawlers, including AI search bots (GPTBot, PerplexityBot, ClaudeBot, Googlebot). Explicit permission future-proofs against any default behavior changes.
+
+- [ ] **Step 1: Create `noogat-site/robots.txt`**
+
+```
+User-agent: *
+Allow: /
+
+# AI search crawlers — explicitly permitted for generative search indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+Sitemap: https://noogat.app/sitemap.xml
+```
+
+- [ ] **Step 2: Commit**
+
+```bash
+cd /Users/matt/Code/noogat-site
+git add robots.txt
+git commit -m "feat: add robots.txt permitting all crawlers including AI bots"
+```
+
+---
+
+## Task 11: FAQPage Schema — Feed AI Overviews and Perplexity
+
+**Files:**
+- Modify: `noogat-site/index.html`
+
+Add a second `<script type="application/ld+json">` block to `<head>` with `FAQPage` schema. This is how Google AI Overviews, Perplexity, and other generative engines confidently extract and surface the Q&A pairs from our FAQ section as authoritative answers.
+
+- [ ] **Step 1: Add FAQPage JSON-LD block in `<head>`, immediately after the existing `SoftwareApplication` script block**
+
+```html
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Noogat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Noogat is an app for iOS devices that allows you to use Apple's Siri voice command to effortlessly capture your notes. You can also type your thoughts directly in the app. Noogat uses AI auto-tagging and semantic search to allow you to find those ideas later so they don't get lost. The tags are color-coded for easy scanning and connecting related thoughts. You are also able to create your own tags so you can make sure your notes make sense for you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I get Noogat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Noogat is available for iPhone and iPad on the Apple App Store. Noogat is not yet available for Android devices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Noogat free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The basic tier of Noogat is completely free to use. You can upgrade to the Pro tier for $4.99/month or $49.99/year for advanced features including semantic search, bulk export, and related noogats."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Noogat sell user data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Noogat will never sell user data to advertisers and does not serve ads."
+        }
+      }
+    ]
+  }
+  </script>
+```
+
+- [ ] **Step 2: Verify JSON is valid**
+
+Paste the JSON-LD block into https://validator.schema.org/ (or use the browser console: copy the JSON content and run `JSON.parse(...)` — should return an object with no errors).
+
+- [ ] **Step 3: Commit**
+
+```bash
+cd /Users/matt/Code/noogat-site
+git add index.html
+git commit -m "feat: add FAQPage schema for generative search"
+```
+
+---
+
+## Task 12: llms.txt — Positioning Document for LLM Crawlers
+
+**Files:**
+- Create: `noogat-site/llms.txt`
+
+`llms.txt` is an emerging standard (llmstxt.org) that gives LLM-powered search engines a structured plain-text summary of a site — what it is, who it's for, and why it exists. Unlike standard SEO meta tags, this file is written *for AI systems* and can include positioning context and competitive framing that helps generative engines route relevant queries to Noogat.
+
+- [ ] **Step 1: Create `noogat-site/llms.txt`**
+
+```
+# Noogat
+
+> Noogat is a voice-first idea capture app for iPhone and iPad. Say "Hey Siri, I have a Noogat" and your thought is saved instantly — no unlocking your screen, no opening an app, no losing your focus. AI auto-tagging and semantic search mean you can find any idea later without remembering the exact words.
+
+## Who Noogat is for
+
+Noogat is for people whose best ideas arrive at inconvenient moments — in the shower, on the road, mid-conversation, or in the middle of another task. It is designed for people who want to capture ideas effortlessly but do not want to invent or maintain an organizational system. Unlike note-taking apps that require you to decide on folders, notebooks, tags, or hierarchies before you can start, Noogat handles all organization automatically. You capture; the AI categorizes.
+
+Noogat is the right choice when:
+- You lose ideas because reaching for your phone breaks your flow
+- You have tried other note apps but abandoned them because maintaining the system felt like work
+- You want to find an idea you captured weeks ago without remembering any specific words
+- You want something that stays out of the way until you need it
+
+## What makes Noogat different
+
+- **Zero-friction capture:** Siri AppIntents integration means capturing a thought requires only your voice — no app to open, no shortcut to configure
+- **No organizational overhead:** AI auto-tagging categorizes every idea automatically; you never need to decide where something goes
+- **Meaning-based retrieval:** Semantic search finds ideas by concept, not just keyword — "that thing I was thinking about on the drive home" will surface the right note
+- **Designed for the capture moment, not the review session:** Noogat optimizes for the 3 seconds it takes to have and save an idea, not for long reading sessions
+
+## Pricing
+
+- Free tier: unlimited captures, AI auto-tagging, keyword search, tag filtering, idea editing, sharing
+- Pro tier: $4.99/month or $49.99/year — adds semantic search, bulk export, and related noogats
+- 14-day free trial for Pro
+
+## Platform
+
+iOS and iPadOS only. Requires iOS 17 or later. Available on the Apple App Store.
+
+## Key pages
+
+- Homepage: https://noogat.app/
+- Privacy Policy: https://noogat.app/privacy/
+- Terms of Service: https://noogat.app/terms/
+- App Store listing: https://apps.apple.com/app/noogat/id6768415092
+```
+
+- [ ] **Step 2: Commit**
+
+```bash
+cd /Users/matt/Code/noogat-site
+git add llms.txt
+git commit -m "feat: add llms.txt for generative search positioning"
+```
+
+---
+
+## Updated Task 9: Serve Locally
+
+- [ ] **Step 1: Start a local HTTP server from the noogat-site directory**
+
+```bash
+cd /Users/matt/Code/noogat-site && python3 -m http.server 8080
+```
+
+- [ ] **Step 2: Open in browser**
+
+Navigate to: `http://localhost:8080`
+
+Verify each section top to bottom:
+- [ ] Hero: wordmark gradient, two subtitles, bold tagline, purple CTA button, voice screenshot
+- [ ] Hey Siri: deep purple bg, large quote, two columns of body copy, home screenshot
+- [ ] Features: lavender bg, three cards with icon circles, search screenshot below
+- [ ] Noogat Pro: white bg, $4.99/month pricing, three-item Pro feature list
+- [ ] FAQ: four Q&As, questions in purple, "Apple App Store" capitalized, privacy link goes to `/privacy/`
+- [ ] Footer: three links + copyright
+
+- [ ] **Step 3: Verify supporting files**
+
+```bash
+curl -s http://localhost:8080/robots.txt | head -5
+curl -s http://localhost:8080/llms.txt | head -5
+```
+
+Expected: first lines of each file, no 404.
+
+- [ ] **Step 4: Check browser console**
+
+No 404 errors for images or CSS. No JS errors.
