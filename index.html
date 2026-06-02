@@ -472,6 +472,23 @@
       /* Footer links: wrap naturally */
       .footer-links { flex-direction: column; align-items: center; gap: 0.75rem; }
     }
+
+    /* Scroll animations */
+    .animate {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .animate.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    .animate-delay-1 { transition-delay: 0.1s; }
+    .animate-delay-2 { transition-delay: 0.2s; }
+    .animate-delay-3 { transition-delay: 0.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      .animate { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 
   <!-- Privacy-friendly analytics -->
@@ -532,13 +549,13 @@
   <!-- HEY SIRI -->
   <section class="siri-section">
     <div class="container">
-      <blockquote class="siri-quote">"Hey Siri, I have a Noogat."</blockquote>
+      <blockquote class="siri-quote animate">"Hey Siri, I have a Noogat."</blockquote>
       <div class="siri-body">
-        <div class="siri-columns">
+        <div class="siri-columns animate animate-delay-1">
           <p>You've got a busy brain, and your best ideas always seem to come at the worst times: in the shower, on the road, or in the middle of some other task. Whether you've just come up with the perfect concept for your next big project or you simply need to remember to add "milk" to the grocery list, you need a way to easily capture those thoughts before they escape forever.</p>
           <p>With Noogat for iOS, you can instantly record your notes using Siri voice command. No unlocking your screen, no opening an app, no losing your focus. With semantic search capability and auto-tagging, you can find "that song idea from last Tuesday" three weeks later — without remembering any specific words. No more digging through garbled voice memos or note graveyards.</p>
         </div>
-        <div class="siri-screenshot">
+        <div class="siri-screenshot animate animate-delay-2">
           <img src="assets/screenshots/screenshot-03-home.png"
                alt="Noogat home feed showing multiple captured ideas with colorful AI-generated tags"
                width="260" height="564" loading="lazy">
@@ -550,10 +567,10 @@
   <!-- FEATURES -->
   <section class="features-section">
     <div class="container">
-      <h2 class="section-title">Features</h2>
+      <h2 class="section-title animate">Features</h2>
       <div class="features-grid">
 
-        <div class="feature-card">
+        <div class="feature-card animate animate-delay-1">
           <div class="feature-icon-wrap" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4zm0 2a2 2 0 0 1 2 2v7a2 2 0 0 1-4 0V5a2 2 0 0 1 2-2zm-7 9a7 7 0 0 0 6 6.93V21H9v2h6v-2h-2v-2.07A7 7 0 0 0 19 12h-2a5 5 0 0 1-10 0H5z"/>
@@ -563,7 +580,7 @@
           <p>Effortlessly record your notes hands-free — no shortcut setup, no app switching, no losing your focus.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card animate animate-delay-2">
           <div class="feature-icon-wrap" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9A2 2 0 0 0 13 22a2 2 0 0 0 1.41-.59l7-7A2 2 0 0 0 22 13a2 2 0 0 0-.59-1.42zM13 20l-9-9V4h7l9 9-7 7zM6.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
@@ -573,7 +590,7 @@
           <p>Every idea is automatically tagged and categorized for easy access.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card animate animate-delay-3">
           <div class="feature-icon-wrap" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
@@ -585,7 +602,7 @@
 
       </div>
 
-      <div class="features-screenshot-wrap">
+      <div class="features-screenshot-wrap animate">
         <img src="assets/screenshots/screenshot-02-search.png"
              alt="Noogat semantic search results showing related ideas grouped by tag — 'A search engine for your brain'"
              width="310" height="674" loading="lazy">
@@ -613,8 +630,8 @@
   <!-- FAQ -->
   <section class="faq-section">
     <div class="container">
-      <h2 class="section-title">FAQ</h2>
-      <dl class="faq-list">
+      <h2 class="section-title animate">FAQ</h2>
+      <dl class="faq-list animate animate-delay-1">
 
         <dt>What is Noogat?</dt>
         <dd>Noogat is an app for iOS devices that allows you to use Apple's Siri voice command to effortlessly capture your notes. You can also type your thoughts directly in the app. Noogat uses AI auto-tagging and semantic search to allow you to find those ideas later so they don't get lost. The tags are color-coded for easy scanning and connecting related thoughts. You are also able to create your own tags so you can make sure your notes make sense for <em>you</em>.</dd>
@@ -643,5 +660,21 @@
       <p class="footer-copy">&copy; 2026 Noogat</p>
     </div>
   </footer>
+  <script>
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.animate').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>
