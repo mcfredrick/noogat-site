@@ -192,6 +192,67 @@
       display: block;
     }
 
+    /* Hero stat tiles */
+    .hero-stats {
+      display: flex;
+      gap: 12px;
+      padding: 2.5rem 0 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-stat {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 1rem 1.25rem 0.875rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 120px;
+    }
+    .hero-stat-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      line-height: 1;
+    }
+    .hero-stat-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-top: 0.35rem;
+    }
+    .hero-stat-icon {
+      margin-top: auto;
+      padding-top: 0.6rem;
+      font-size: 1.75rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+    .hero-stat--purple .hero-stat-value { color: #bf5fff; }
+    .hero-stat--green  .hero-stat-value { color: #a3e635; }
+    .hero-stat--pink   .hero-stat-value { color: #ff5c8d; }
+
+    /* Hero gradient band */
+    .hero-band {
+      background: linear-gradient(90deg, var(--brand-purple), var(--brand-pink));
+      padding: 0.875rem 0;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-band p {
+      text-align: center;
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 500;
+      color: rgba(255,255,255,0.92);
+      margin: 0;
+    }
+
     /* --- Hey Siri Section --- */
     .siri-section {
       background: var(--brand-purple);
@@ -434,6 +495,26 @@
                alt="Noogat app showing Siri voice capture in action — the app is listening and saving a new noogat hands-free"
                width="310" height="674" loading="eager">
         </div>
+      </div>
+      <div class="hero-stats container">
+        <div class="hero-stat hero-stat--purple">
+          <span class="hero-stat-label">Capture time</span>
+          <span class="hero-stat-value">0s</span>
+          <span class="hero-stat-icon">🎙️</span>
+        </div>
+        <div class="hero-stat hero-stat--green">
+          <span class="hero-stat-label">To start</span>
+          <span class="hero-stat-value">Free</span>
+          <span class="hero-stat-icon">✨</span>
+        </div>
+        <div class="hero-stat hero-stat--pink">
+          <span class="hero-stat-label">Platform</span>
+          <span class="hero-stat-value">iOS</span>
+          <span class="hero-stat-icon">📱</span>
+        </div>
+      </div>
+      <div class="hero-band">
+        <p>"Hey Siri, I have a Noogat." — hands-free voice notes, always findable</p>
       </div>
     </div>
   </section>
