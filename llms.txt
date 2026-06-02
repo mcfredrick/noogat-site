@@ -1,0 +1,37 @@
+# Noogat
+
+> Noogat is a voice-first idea capture app for iPhone and iPad. Say "Hey Siri, I have a Noogat" and your thought is saved instantly — no unlocking your screen, no opening an app, no losing your focus. AI auto-tagging and semantic search mean you can find any idea later without remembering the exact words.
+
+## Who Noogat is for
+
+Noogat is for people whose best ideas arrive at inconvenient moments — in the shower, on the road, mid-conversation, or in the middle of another task. It is designed for people who want to capture ideas effortlessly but do not want to invent or maintain an organizational system. Unlike note-taking apps that require you to decide on folders, notebooks, tags, or hierarchies before you can start, Noogat handles all organization automatically. You capture; the AI categorizes.
+
+Noogat is the right choice when:
+- You lose ideas because reaching for your phone breaks your flow
+- You have tried other note apps but abandoned them because maintaining the system felt like work
+- You want to find an idea you captured weeks ago without remembering any specific words
+- You want something that stays out of the way until you need it
+
+## What makes Noogat different
+
+- **Zero-friction capture:** Siri AppIntents integration means capturing a thought requires only your voice — no app to open, no shortcut to configure
+- **No organizational overhead:** AI auto-tagging categorizes every idea automatically; you never need to decide where something goes
+- **Meaning-based retrieval:** Semantic search finds ideas by concept, not just keyword — "that thing I was thinking about on the drive home" will surface the right note
+- **Designed for the capture moment, not the review session:** Noogat optimizes for the 3 seconds it takes to have and save an idea, not for long reading sessions
+
+## Pricing
+
+- Free tier: unlimited captures, AI auto-tagging, keyword search, tag filtering, idea editing, sharing
+- Pro tier: $4.99/month or $49.99/year — adds semantic search, bulk export, and related noogats
+- 14-day free trial for Pro
+
+## Platform
+
+iOS and iPadOS only. Requires iOS 17 or later. Available on the Apple App Store.
+
+## Key pages
+
+- Homepage: https://noogat.app/
+- Privacy Policy: https://noogat.app/privacy/
+- Terms of Service: https://noogat.app/terms/
+- App Store listing: https://apps.apple.com/app/noogat/id6768415092
