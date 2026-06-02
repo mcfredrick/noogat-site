@@ -227,6 +227,42 @@
       height: auto;
     }
 
+    /* --- Pro Section --- */
+    .pro-section {
+      background: var(--surface);
+      padding: 5rem 0;
+    }
+    .pro-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 0 0 1rem;
+    }
+    .pro-body {
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .pro-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+    .pro-features li {
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      max-width: 400px;
+    }
+    .pro-features li:last-child { border-bottom: none; }
+    .pro-emoji { font-size: 1.25rem; }
+
     /* Sections added in subsequent tasks */
   </style>
 
@@ -324,6 +360,23 @@
              alt="Noogat semantic search results showing related ideas grouped by tag — 'A search engine for your brain'"
              width="310" height="674" loading="lazy">
       </div>
+    </div>
+  </section>
+
+  <!-- NOOGAT PRO -->
+  <section class="pro-section">
+    <div class="container">
+      <h2 class="pro-title">Noogat Pro</h2>
+      <p class="pro-body">
+        The basic level of Noogat is completely free to use. Upgrade to the <strong>Pro tier</strong> for
+        <strong>$4.99/month</strong> or <strong>$49.99/year</strong> to get advanced features:
+      </p>
+      <ul class="pro-features">
+        <li><span class="pro-emoji">✨</span> Semantic search</li>
+        <li><span class="pro-emoji">📦</span> Bulk export noogats</li>
+        <li><span class="pro-emoji">🔗</span> Related noogats</li>
+      </ul>
+      <!-- Pro features source of truth: claude-inbox/docs/features.json (widgets excluded — not yet released) -->
     </div>
   </section>
 
