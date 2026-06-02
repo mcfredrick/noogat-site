@@ -5,44 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="/assets/logo-black.png">
   <title>Noogat — The Search Engine for Your Thoughts</title>
-  <meta property="og:title" content="Noogat — The Search Engine for Your Thoughts" />
-  <meta property="og:description" content="Capture ideas hands-free with Siri, then find them instantly with AI-powered search." />
-  <meta property="og:image" content="https://noogat.app/assets/logo-black.png" />
-  <meta property="og:image:width" content="2000" />
-  <meta property="og:image:height" content="2000" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://noogat.app/assets/logo-black.png" />
+  <meta name="description" content="Capture ideas hands-free with Siri, then find them instantly with AI-powered search and auto-tagging. Free for iOS.">
+  <link rel="canonical" href="https://noogat.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noogat.app/">
+  <meta property="og:title" content="Noogat — The Search Engine for Your Thoughts">
+  <meta property="og:description" content="Capture ideas hands-free with Siri, then find them instantly with AI-powered search and auto-tagging. Free for iOS.">
+  <meta property="og:image" content="https://noogat.app/assets/screenshots/screenshot-01-voice.png">
+  <meta property="og:image:width" content="1320">
+  <meta property="og:image:height" content="2868">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Noogat — The Search Engine for Your Thoughts">
+  <meta name="twitter:description" content="Capture ideas hands-free with Siri, then find them instantly with AI-powered search and auto-tagging. Free for iOS.">
+  <meta name="twitter:image" content="https://noogat.app/assets/screenshots/screenshot-01-voice.png">
+
+  <!-- Apple Smart App Banner — shows "Open in App Store" natively in iOS Safari -->
+  <meta name="apple-itunes-app" content="app-id=6768415092">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Noogat",
+    "operatingSystem": "iOS",
+    "applicationCategory": "ProductivityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Capture ideas hands-free with Siri, then find them instantly with AI-powered search and auto-tagging.",
+    "url": "https://noogat.app"
+  }
+  </script>
+
   <link rel="stylesheet" href="_shared.css">
   <style>
-    .hero { text-align: center; padding: 4rem 0 2rem; }
-    .hero-logo {
-      width: clamp(80px, 20vw, 120px);
-      height: clamp(80px, 20vw, 120px);
-      border-radius: 22%;
-      margin: 0 auto 1.5rem;
-      display: block;
+    /* Override _shared.css body padding for full-width sections */
+    body { padding: 0; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
-    .hero h1 { font-size: 2.5rem; }
-    .tagline { color: var(--text-secondary); font-size: 1.1rem; margin: 0.75rem 0 2rem; }
-    .cta {
+
+    .btn-cta {
       display: inline-block;
-      background: linear-gradient(135deg, var(--brand-purple), var(--brand-pink));
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      padding: 0.75rem 2rem;
-      border-radius: 100px;
       font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
       -webkit-text-fill-color: #fff;
+      box-shadow: 0 4px 20px rgba(124, 34, 217, 0.35);
+      transition: opacity 0.15s;
     }
-    .features { display: grid; gap: 1rem; margin: 3rem 0; }
-    .feature { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
-    .feature-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .feature h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .feature p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+    .btn-cta:hover { opacity: 0.9; }
+
+    /* Sections added in subsequent tasks */
   </style>
-  <!-- Privacy-friendly analytics by Plausible -->
+
+  <!-- Privacy-friendly analytics -->
   <script async src="https://traffic.dayjob.dev/js/pa-rzoUHPXrk_Fzabjb3j1iy.js"></script>
   <script>
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
@@ -50,41 +81,6 @@
   </script>
 </head>
 <body>
-  <main>
-    <div class="hero">
-      <img class="hero-logo" src="assets/logo-transparent.png" alt="Noogat" />
-      <p class="wordmark" style="justify-content: center; margin-bottom: 1rem;">
-        <span class="wordmark-text">Noogat</span>
-      </p>
-      <h1>The Search Engine<br>for Your Thoughts</h1>
-      <p class="tagline">Capture ideas hands-free with Siri, then find them instantly with AI-powered search.</p>
-      <a class="cta" href="https://apps.apple.com/app/noogat/id6768415092">Download on the App Store</a>
-    </div>
-
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">🎙️</div>
-        <h3>Siri-native capture</h3>
-        <p>Capture ideas hands-free using AppIntents — no shortcut setup, no app switching.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🏷️</div>
-        <h3>AI auto-tagging</h3>
-        <p>Every idea is automatically tagged and categorized so you can find it later.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🔍</div>
-        <h3>Full-text search</h3>
-        <p>Search across all your ideas instantly, including by tag.</p>
-      </div>
-    </div>
-
-    <footer>
-      &copy; 2026 Noogat &nbsp;·&nbsp;
-      <a href="privacy/">Privacy Policy</a> &nbsp;·&nbsp;
-      <a href="terms/">Terms of Service</a> &nbsp;·&nbsp;
-      <a href="mailto:support@dayjoy.dev">Contact</a>
-    </footer>
-  </main>
+  <!-- sections go here -->
 </body>
 </html>
