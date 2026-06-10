@@ -113,6 +113,34 @@
     }
     .btn-cta:hover { opacity: 0.9; }
 
+    .btn-cta--outline {
+      background: transparent;
+      border: 2px solid rgba(191, 95, 255, 0.5);
+      color: #bf5fff;
+      -webkit-text-fill-color: #bf5fff;
+      box-shadow: none;
+    }
+    .btn-cta--outline:hover { border-color: #bf5fff; opacity: 1; background: rgba(191, 95, 255, 0.08); }
+
+    .badge-beta {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--brand-purple), var(--brand-pink));
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+      border-radius: 100px;
+      padding: 0.1em 0.5em;
+      vertical-align: middle;
+      margin-left: 0.35em;
+      position: relative;
+      top: -1px;
+    }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
     /* --- Hero --- */
     .hero {
       background: linear-gradient(145deg, #0f0020 0%, #1a0040 45%, #25003a 100%);
@@ -555,9 +583,14 @@
           <h1 class="hero-headline">Voice Notes that Organize Themselves.</h1>
           <p class="hero-sub">Say "Hey Siri, I have a Noogat" and your note is saved instantly — no tapping, no unlocking. AI auto-tagging means you can always find it again.</p>
           <p class="hero-tagline">The Search Engine for Your Thoughts.</p>
-          <a href="https://apps.apple.com/app/noogat/id6768415092" class="btn-cta">
-            Download on the App Store
-          </a>
+          <div class="hero-ctas">
+            <a href="https://apps.apple.com/app/noogat/id6768415092" class="btn-cta">
+              Download on the App Store
+            </a>
+            <a href="https://app.noogat.app" class="btn-cta btn-cta--outline">
+              Try Web App <span class="badge-beta">Beta</span>
+            </a>
+          </div>
         </div>
         <div class="hero-screenshot">
           <img src="assets/screenshots/screenshot-01-voice.png"
