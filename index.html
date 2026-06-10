@@ -98,48 +98,89 @@
       padding: 0 1.5rem;
     }
 
-    .btn-cta {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--brand-purple), var(--brand-pink));
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.875rem 2rem;
-      border-radius: 100px;
-      -webkit-text-fill-color: #fff;
-      box-shadow: 0 4px 20px rgba(124, 34, 217, 0.35);
-      transition: opacity 0.15s;
-    }
-    .btn-cta:hover { opacity: 0.9; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
-    .btn-cta--outline {
-      background: transparent;
-      border: 2px solid rgba(191, 95, 255, 0.5);
-      color: #bf5fff;
-      -webkit-text-fill-color: #bf5fff;
-      box-shadow: none;
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 44px;
+      padding: 0 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      flex-shrink: 0;
     }
-    .btn-cta--outline:hover { border-color: #bf5fff; opacity: 1; background: rgba(191, 95, 255, 0.08); }
+    .platform-badge:hover { opacity: 0.85; }
+
+    .platform-badge--apple {
+      background: #000;
+    }
+    @media (prefers-color-scheme: dark) {
+      .platform-badge--apple {
+        background: #fff;
+      }
+      .platform-badge--apple .badge-icon,
+      .platform-badge--apple .badge-label,
+      .platform-badge--apple .badge-name {
+        color: #000;
+        fill: #000;
+        -webkit-text-fill-color: #000;
+      }
+    }
+
+    .platform-badge--web {
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+    }
+
+    .badge-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      fill: #fff;
+      color: #fff;
+    }
+
+    .badge-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .badge-label {
+      font-size: 10px;
+      font-weight: 400;
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+      letter-spacing: 0.01em;
+      opacity: 0.9;
+    }
+
+    .badge-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
 
     .badge-beta {
       display: inline-block;
-      font-size: 0.65rem;
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      background: linear-gradient(90deg, var(--brand-purple), var(--brand-pink));
+      background: rgba(255,255,255,0.25);
       color: #fff;
       -webkit-text-fill-color: #fff;
       border-radius: 100px;
-      padding: 0.1em 0.5em;
+      padding: 2px 6px;
+      margin-left: 4px;
       vertical-align: middle;
-      margin-left: 0.35em;
       position: relative;
       top: -1px;
     }
-
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
     /* --- Hero --- */
     .hero {
@@ -584,11 +625,19 @@
           <p class="hero-sub">Say "Hey Siri, I have a Noogat" and your note is saved instantly — no tapping, no unlocking. AI auto-tagging means you can always find it again.</p>
           <p class="hero-tagline">The Search Engine for Your Thoughts.</p>
           <div class="hero-ctas">
-            <a href="https://apps.apple.com/app/noogat/id6768415092" class="btn-cta">
-              Download on the App Store
+            <a href="https://apps.apple.com/app/noogat/id6768415092" class="platform-badge platform-badge--apple" aria-label="Download on the App Store">
+              <svg class="badge-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.37 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="badge-text">
+                <span class="badge-label">Download on the</span>
+                <span class="badge-name">App Store</span>
+              </span>
             </a>
-            <a href="https://app.noogat.app" class="btn-cta btn-cta--outline">
-              Try Web App <span class="badge-beta">Beta</span>
+            <a href="https://app.noogat.app" class="platform-badge platform-badge--web" aria-label="Open Web App (Beta)">
+              <svg class="badge-icon" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span class="badge-text">
+                <span class="badge-label">Open in</span>
+                <span class="badge-name">Web App<span class="badge-beta">Beta</span></span>
+              </span>
             </a>
           </div>
         </div>
