@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/logo-black.png">
+  <title>Your Notes as Agent Memory — Noogat for AI Coding Agents</title>
+  <meta name="description" content="Noogat gives your AI coding agent persistent access to your personal notes and captured ideas — the human context that automated memory systems can't generate for you.">
+  <meta property="og:title" content="Your Notes as Agent Memory — Noogat" />
+  <meta property="og:description" content="Mem0, Zep, and Cloudflare Agent Memory store what the agent generates. Noogat stores what you think. Connect them via MCP." />
+  <meta property="og:image" content="https://noogat.app/assets/og-image.png" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_shared.css">
+  <style>
+    body { padding-bottom: 6rem; }
+    .site-header { padding: 1.75rem 0 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+    .site-header .inner { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+    .site-header a { text-decoration: none; color: inherit; }
+    .site-header .wordmark { font-size: 1.4rem; }
+    main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+
+    .hero-block { margin-bottom: 3rem; }
+    .hero-block h1 { font-family: 'Fraunces', Georgia, serif; font-size: 2.4rem; font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .hero-block .lead { font-size: 1.15rem; color: var(--text-secondary); max-width: 620px; margin-bottom: 1.5rem; }
+    .cta-button { display: inline-block; background: linear-gradient(90deg, #7C22D9, #C91B5B); color: #fff; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; }
+    .cta-button:hover { opacity: 0.9; color: #fff; }
+
+    .article-body h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 800; color: var(--text); margin: 2.5rem 0 0.75rem; }
+    .article-body p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .article-body li { color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .article-body strong { color: var(--text); }
+    .article-body a { color: var(--brand-purple); }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--brand-purple); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .callout p { margin: 0; color: var(--text-secondary); }
+    .callout strong { color: var(--text); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+    .col-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .col-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+    .col-card ul { padding-left: 1.25rem; margin: 0; }
+    .col-card li { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.35rem; }
+
+    .code-block { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; font-family: 'DM Mono', 'Courier New', monospace; font-size: 0.85rem; overflow-x: auto; color: var(--text); margin: 0.75rem 0; }
+
+    .cta-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; text-align: center; margin: 3rem 0; }
+    .cta-block h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 0.75rem; }
+    .cta-block p { color: var(--text-secondary); margin-bottom: 1.25rem; }
+
+    footer { max-width: 760px; margin: 4rem auto 0; padding: 1.5rem 1.25rem 0; border-top: 1px solid var(--border); text-align: center; }
+    footer a { color: var(--text-secondary); margin: 0 0.5rem; font-size: 0.85rem; }
+    footer p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+  </style>
+  <script async src="https://traffic.dayjob.dev/js/pa-rzoUHPXrk_Fzabjb3j1iy.js"></script>
+  <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="wordmark">
+        <img src="/assets/logo-transparent.png" alt="Noogat" width="36" height="36">
+        <span class="wordmark-text">Noogat</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero-block">
+      <h1>Your notes are the agent memory nobody else can generate.</h1>
+      <p class="lead">Mem0 and Zep remember what the agent did. Noogat remembers what <em>you</em> thought — captured on the go with Siri and available to any AI coding agent via MCP.</p>
+      <a href="https://app.noogat.app" class="cta-button">Try it free →</a>
+    </div>
+
+    <div class="article-body">
+
+      <h2>Two kinds of agent memory</h2>
+      <p>The 2026 agent memory ecosystem has exploded — Mem0, Zep, Cloudflare Agent Memory, Anthropic Dreaming. These tools are genuinely useful. But they all solve one specific problem: storing and retrieving what the agent itself generates across sessions.</p>
+      <p>That's different from the problem Noogat solves. Noogat stores what <em>you</em> think — the insights, hunches, decisions, and half-formed ideas you have away from the keyboard. The architecture decision you reached after a long run. The bug hypothesis you had in the shower. The "I should revisit this" thought from a conference talk.</p>
+      <p>No agent memory system generates that content for you. You have to capture it yourself.</p>
+
+      <div class="two-col">
+        <div class="col-card">
+          <h3>Automated agent memory</h3>
+          <ul>
+            <li>Stores what the agent learns from sessions</li>
+            <li>User preferences, past decisions, conversation history</li>
+            <li>Generated automatically — no human input</li>
+            <li>Examples: Mem0, Zep, Cloudflare Agent Memory</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h3>Human-captured notes (Noogat)</h3>
+          <ul>
+            <li>Stores what <em>you</em> think and observe</li>
+            <li>Architecture rationale, bug hunches, research fragments</li>
+            <li>Captured with Siri — zero friction, any time</li>
+            <li>Retrieved in-agent via MCP</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>The two are complementary. A well-equipped agent might have both: automated session memory <em>and</em> access to your personal note stream. Noogat handles the second half.</p>
+
+      <h2>What kinds of notes make useful agent context</h2>
+      <p>Not all notes are equally valuable as agent memory. The highest-signal content tends to be:</p>
+      <ul>
+        <li><strong>Why decisions were made.</strong> "We went with Postgres over SQLite because the team agreed we'd hit connection limits within six months." Your agent won't know this unless you captured it. Six months later, when you're debating adding another service, it's the exact context you want surfaced.</li>
+        <li><strong>Bug patterns you've noticed but haven't fixed yet.</strong> "Something's wrong with the WebSocket reconnect logic on flaky connections — not crashing, just silently dropping messages." Captured, tagged, findable when the symptom comes up in a coding session.</li>
+        <li><strong>Things you learned that surprised you.</strong> Non-obvious library behavior, production gotchas, tricky API edge cases. Your own TIL log, searchable in-agent.</li>
+        <li><strong>Vague intentions.</strong> "Should migrate the image pipeline away from Sharp at some point — it's getting unwieldy." Not ready for the issue tracker, but worth having in context when you're touching that part of the codebase.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>The insight that makes this click:</strong> your best thinking happens away from the keyboard. Noogat's Siri integration captures it in the moment — so it doesn't get lost between the thought and the next time you sit down to code.</p>
+      </div>
+
+      <h2>How MCP connects your notes to your agent</h2>
+      <p>Noogat runs a Streamable HTTP MCP server at <code>https://app.noogat.app/mcp</code>. Once connected, your AI coding agent can search your notes in natural language without you leaving the terminal or explaining context you've already captured.</p>
+      <p>Connect to Claude Code with one command:</p>
+      <div class="code-block">claude mcp add noogat --transport http https://app.noogat.app/mcp --header "Authorization: Bearer YOUR_TOKEN"</div>
+      <p>Generate your token at <a href="https://app.noogat.app/settings/integrations">app.noogat.app/settings/integrations</a>. Full setup guide at <a href="/mcp/">noogat.app/mcp</a>.</p>
+
+      <h2>Works alongside your existing agent memory stack</h2>
+      <p>If you're already using Mem0, Zep, or another session memory tool, Noogat doesn't conflict — they do different things. Your agent gets automated session memory from one system and your personal note stream from Noogat. Both are available in-context. Neither replaces the other.</p>
+
+    </div>
+
+    <div class="callout" style="border-left-color: var(--brand-pink); margin-bottom: 3rem;">
+      <p>🎁 <strong>First 100 developers get 30 days of Pro free.</strong> Download the app, then enter code <strong>DEVMCP</strong> in Settings → Promo Code. No credit card needed.</p>
+    </div>
+
+    <div class="cta-block">
+      <h2>Add your notes to your agent's context.</h2>
+      <p>Free to start. MCP integration on Pro. iOS app + web app, synced.</p>
+      <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Download on the App Store →</a>
+    </div>
+  </main>
+
+  <footer>
+    <a href="/">Home</a>
+    <a href="/mcp/">MCP Integration</a>
+    <a href="/developers/">For Developers</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <p>&copy; 2026 Noogat</p>
+  </footer>
+</body>
+</html>
