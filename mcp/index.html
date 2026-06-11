@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="/assets/logo-black.png">
   <title>MCP Integration — Use Your Notes Inside Your AI Coding Agent | Noogat</title>
-  <meta name="description" content="Noogat's MCP server connects your captured notes to Claude Code, Claude Desktop, and Cursor. Search your ideas from inside your AI coding agent — no context switching.">
+  <meta name="description" content="Noogat's MCP server connects your captured notes to Claude Code, Claude Desktop, Cursor, Windsurf, Codex CLI, and GitHub Copilot. Search your ideas from inside your AI coding agent.">
   <meta property="og:title" content="MCP Integration — Noogat" />
-  <meta property="og:description" content="Connect your Noogat notes to Claude Code, Claude Desktop, or Cursor via MCP. Your captured context, always available in your coding agent." />
+  <meta property="og:description" content="Connect your Noogat notes to Claude Code, Cursor, Windsurf, or Codex CLI via MCP. Your captured context, always available in your coding agent." />
   <meta property="og:image" content="https://noogat.app/assets/og-image.png" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -49,7 +49,7 @@
         "name": "Does the Noogat MCP server work with clients other than Claude Code?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Any MCP-compatible client works. Noogat uses the standard Streamable HTTP transport, so it works with Claude Code, Claude Desktop, Cursor, and any other compliant MCP client."
+          "text": "Yes. Any MCP-compatible client works. Noogat uses the standard Streamable HTTP transport, so it works with Claude Code, Claude Desktop, Cursor, Windsurf, GitHub Copilot, OpenAI Codex CLI, and any other compliant MCP client."
         }
       },
       {
@@ -215,7 +215,7 @@
 
     <div class="hero-block">
       <h1>Your Notes, Inside Your AI Coding Agent.</h1>
-      <p class="lead">Noogat connects to Claude Code, Claude Desktop, and Cursor via MCP — so you can search your captured ideas without ever leaving your terminal.</p>
+      <p class="lead">Noogat connects to Claude Code, Cursor, Windsurf, Codex CLI, and more via MCP — so you can search your captured ideas without ever leaving your terminal.</p>
       <a href="https://app.noogat.app" class="cta-button">Get started free →</a>
     </div>
 
@@ -255,8 +255,16 @@
           <p>AI-first code editor. Supports MCP servers natively.</p>
         </div>
         <div class="client-card">
-          <h3>Any MCP client</h3>
-          <p>Noogat uses the standard Streamable HTTP transport — works with any compliant client.</p>
+          <h3>Windsurf</h3>
+          <p>Codeium's AI editor. Uses <code>serverUrl</code> syntax — see setup below.</p>
+        </div>
+        <div class="client-card">
+          <h3>Codex CLI</h3>
+          <p>OpenAI's terminal agent. Configure in <code>~/.codex/config.toml</code>.</p>
+        </div>
+        <div class="client-card">
+          <h3>GitHub Copilot</h3>
+          <p>VS Code extension. Supports HTTP MCP servers via <code>.vscode/mcp.json</code>.</p>
         </div>
       </div>
     </div>
@@ -268,7 +276,7 @@
       <p><strong>Claude Code</strong> — paste this in your terminal:</p>
       <div class="code-block">claude mcp add noogat --transport http https://app.noogat.app/mcp --header "Authorization: Bearer YOUR_TOKEN"</div>
 
-      <p><strong>Claude Desktop / Cursor</strong> — add to your <code>mcpServers</code> config:</p>
+      <p><strong>Claude Desktop / Cursor / GitHub Copilot</strong> — add to your <code>mcpServers</code> config:</p>
       <div class="code-block">"noogat": {
   "type": "http",
   "url": "https://app.noogat.app/mcp",
@@ -276,6 +284,23 @@
     "Authorization": "Bearer YOUR_TOKEN"
   }
 }</div>
+
+      <p><strong>Windsurf</strong> — uses <code>serverUrl</code> instead of <code>url</code>. Add to <code>~/.codeium/windsurf/mcp_config.json</code>:</p>
+      <div class="code-block">"noogat": {
+  "type": "streamable-http",
+  "serverUrl": "https://app.noogat.app/mcp",
+  "headers": {
+    "Authorization": "Bearer YOUR_TOKEN"
+  }
+}</div>
+
+      <p><strong>Codex CLI</strong> — add to <code>~/.codex/config.toml</code>:</p>
+      <div class="code-block">[mcp_servers.noogat]
+type = "streamable-http"
+url = "https://app.noogat.app/mcp"
+
+[mcp_servers.noogat.headers]
+Authorization = "Bearer YOUR_TOKEN"</div>
 
       <p>Restart your AI client after connecting. Noogat will appear in the tools list and your agent can start searching your notes immediately.</p>
     </div>
@@ -319,7 +344,7 @@
         <dd>Any client using that token will immediately lose access. You can generate a new token any time from Settings → MCP Integration.</dd>
 
         <dt>I don't use Claude Code — can I still use this?</dt>
-        <dd>Yes. Any MCP-compatible client works. If your AI coding tool supports MCP Streamable HTTP servers, it will work with Noogat.</dd>
+        <dd>Yes. Noogat works with Claude Code, Claude Desktop, Cursor, Windsurf, GitHub Copilot, and OpenAI Codex CLI. The setup instructions for each are in the section above — Windsurf and Codex use slightly different config syntax, but it's a one-time copy-paste.</dd>
       </dl>
     </div>
 
