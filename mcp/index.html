@@ -22,6 +22,14 @@
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "Does Noogat send my notes to AI providers through MCP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The MCP server responds to requests from your AI agent and returns your notes to you — it doesn't independently send your content anywhere. When your agent retrieves a noogat, it's your agent pulling data into a conversation you're already having, the same as if you'd searched and copy-pasted it yourself."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Does the Noogat MCP integration work with the free tier?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -343,6 +351,9 @@ Authorization = "Bearer YOUR_TOKEN"</div>
     <div class="faq">
       <h2>FAQ</h2>
       <dl>
+        <dt>Does Noogat send my notes to AI providers?</dt>
+        <dd>No. The MCP server is just an API — it responds to requests from your AI agent and returns your notes to you. It doesn't independently send your content anywhere. When your agent retrieves a noogat, it's your agent, in your session, pulling data into a conversation you're already having — the same as if you'd searched and copy-pasted it yourself. Noogat doesn't have visibility into what your agent does with the content once it's retrieved.</dd>
+
         <dt>Does this work with the free tier?</dt>
         <dd>The MCP integration is a Pro feature. You can try Noogat for free and upgrade when you're ready.</dd>
 
