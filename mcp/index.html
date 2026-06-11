@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/logo-black.png">
+  <title>MCP Integration — Use Your Notes Inside Your AI Coding Agent | Noogat</title>
+  <meta name="description" content="Noogat's MCP server connects your captured notes to Claude Code, Claude Desktop, and Cursor. Search your ideas from inside your AI coding agent — no context switching.">
+  <meta property="og:title" content="MCP Integration — Noogat" />
+  <meta property="og:description" content="Connect your Noogat notes to Claude Code, Claude Desktop, or Cursor via MCP. Your captured context, always available in your coding agent." />
+  <meta property="og:image" content="https://noogat.app/assets/og-image.png" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_shared.css">
+  <style>
+    body { padding-bottom: 6rem; }
+
+    .site-header {
+      padding: 1.75rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .site-header .inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .site-header a { text-decoration: none; color: inherit; }
+    .site-header .wordmark { font-size: 1.4rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+
+    .hero-block {
+      margin-bottom: 3rem;
+    }
+    .hero-block h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-block .lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .cta-button:hover { opacity: 0.9; color: #fff; }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+    .section h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+    }
+    .section p, .section li { color: var(--text-secondary); margin-bottom: 0.75rem; }
+    .section ul { padding-left: 1.5rem; }
+    .section li { margin-bottom: 0.5rem; }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-purple);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout p { margin: 0; color: var(--text-secondary); }
+    .callout strong { color: var(--text); }
+
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      color: var(--text);
+      margin: 0.75rem 0;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .client-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .client-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text); }
+    .client-card p { font-size: 0.85rem; margin: 0; color: var(--text-secondary); }
+
+    .faq { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem; }
+    .faq h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .faq dt {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .faq dd {
+      color: var(--text-secondary);
+      margin: 0 0 1.5rem;
+    }
+
+    footer {
+      max-width: 760px;
+      margin: 4rem auto 0;
+      padding: 1.5rem 1.25rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    footer a { color: var(--text-secondary); margin: 0 0.5rem; font-size: 0.85rem; }
+    footer p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+  </style>
+
+  <!-- Privacy-friendly analytics -->
+  <script async src="https://traffic.dayjob.dev/js/pa-rzoUHPXrk_Fzabjb3j1iy.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="wordmark">
+        <img src="/assets/logo-transparent.png" alt="Noogat" width="36" height="36">
+        <span class="wordmark-text">Noogat</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero-block">
+      <h1>Your Notes, Inside Your AI Coding Agent.</h1>
+      <p class="lead">Noogat connects to Claude Code, Claude Desktop, and Cursor via MCP — so you can search your captured ideas without ever leaving your terminal.</p>
+      <a href="https://app.noogat.app" class="cta-button">Get started free →</a>
+    </div>
+
+    <div class="section">
+      <h2>What is MCP?</h2>
+      <p>MCP (Model Context Protocol) is an open standard that lets AI coding assistants like Claude Code talk to external tools and data sources. Think of it as a plugin system for your AI agent — you give it access to things it couldn't reach before, and it can use them in-context while you work.</p>
+      <p>Noogat implements an MCP server, which means once you connect it, your AI agent can search your noogats directly. Ask "what did I capture about the auth flow?" and Claude will look it up for you.</p>
+    </div>
+
+    <div class="section">
+      <h2>Why would you want your notes in your coding agent?</h2>
+      <p>Great question. A few reasons this turns out to be surprisingly useful:</p>
+      <ul>
+        <li><strong>Architecture decisions you made last month.</strong> You captured the reasoning in a noogat. Now you're revisiting the decision and you want Claude to know why you made it — instead of re-explaining it from scratch.</li>
+        <li><strong>Bug patterns you've noticed.</strong> "There's something weird with the auth refresh on mobile." That's in a noogat. Your agent can find it before you can type it.</li>
+        <li><strong>Reminders and TODOs.</strong> Things you said "I should do this later" about. Your agent can pull them into context when relevant.</li>
+        <li><strong>Research notes.</strong> You capture things while reading docs or watching talks. They're searchable from inside your coding session without opening another app.</li>
+      </ul>
+      <div class="callout">
+        <p><strong>The basic idea:</strong> your brain is the bottleneck. Noogat + MCP means you spend less time re-explaining your own context to your AI and more time actually building things.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Supported clients</h2>
+      <div class="client-grid">
+        <div class="client-card">
+          <h3>Claude Code</h3>
+          <p>Anthropic's official CLI. One command to connect.</p>
+        </div>
+        <div class="client-card">
+          <h3>Claude Desktop</h3>
+          <p>The desktop app. Add a JSON snippet to your config.</p>
+        </div>
+        <div class="client-card">
+          <h3>Cursor</h3>
+          <p>AI-first code editor. Supports MCP servers natively.</p>
+        </div>
+        <div class="client-card">
+          <h3>Any MCP client</h3>
+          <p>Noogat uses the standard Streamable HTTP transport — works with any compliant client.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>How to connect Noogat</h2>
+      <p>You'll need a Noogat Pro account. Once you have one, go to <strong>Settings → MCP Integration</strong> in the web app (or the iOS app) to generate an API token, then follow the setup instructions for your client.</p>
+
+      <p><strong>Claude Code</strong> — paste this in your terminal:</p>
+      <div class="code-block">claude mcp add noogat --transport http https://app.noogat.app/mcp --header "Authorization: Bearer YOUR_TOKEN"</div>
+
+      <p><strong>Claude Desktop / Cursor</strong> — add to your <code>mcpServers</code> config:</p>
+      <div class="code-block">"noogat": {
+  "type": "http",
+  "url": "https://app.noogat.app/mcp",
+  "headers": {
+    "Authorization": "Bearer YOUR_TOKEN"
+  }
+}</div>
+
+      <p>Restart your AI client after connecting. Noogat will appear in the tools list and your agent can start searching your notes immediately.</p>
+    </div>
+
+    <div class="section">
+      <h2>What can the agent actually do?</h2>
+      <p>Once connected, your AI coding agent can:</p>
+      <ul>
+        <li>Search your noogats by keyword or natural language query</li>
+        <li>Retrieve notes by tag or topic</li>
+        <li>Surface noogats related to whatever you're currently working on</li>
+      </ul>
+      <p>The agent uses your notes the same way you'd use them manually — but it can search faster, pull in relevant context without prompting, and reference your past thinking inside any conversation.</p>
+    </div>
+
+    <div class="section">
+      <h2>Is it secure?</h2>
+      <p>Yes. A few things worth knowing:</p>
+      <ul>
+        <li>Your API token is specific to you and can be revoked any time from the integrations page.</li>
+        <li>The MCP server only has read access to your noogats — it cannot create, edit, or delete anything.</li>
+        <li>Connections are authenticated on every request. There's no persistent session to intercept.</li>
+        <li>Your token never leaves your device — you paste it into your local client config, and it goes directly to Noogat's servers over HTTPS. Nothing is stored in Noogat's logs.</li>
+      </ul>
+    </div>
+
+    <div class="faq">
+      <h2>FAQ</h2>
+      <dl>
+        <dt>Does this work with the free tier?</dt>
+        <dd>The MCP integration is a Pro feature. You can try Noogat for free and upgrade when you're ready.</dd>
+
+        <dt>Does the AI agent see all my noogats?</dt>
+        <dd>It can search and retrieve your noogats when asked, but it doesn't bulk-load them all at once. The agent pulls noogats on demand, the same way a search would.</dd>
+
+        <dt>What if I delete the token?</dt>
+        <dd>Any client using that token will immediately lose access. You can generate a new token any time from Settings → MCP Integration.</dd>
+
+        <dt>I don't use Claude Code — can I still use this?</dt>
+        <dd>Yes. Any MCP-compatible client works. If your AI coding tool supports MCP Streamable HTTP servers, it will work with Noogat.</dd>
+      </dl>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/">Home</a>
+    <a href="https://apps.apple.com/app/noogat/id6768415092">App Store</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+    <p>&copy; 2026 Noogat</p>
+  </footer>
+
+</body>
+</html>

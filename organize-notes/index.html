@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/logo-black.png">
+  <title>How to Organize Notes Without Thinking About It | Noogat</title>
+  <meta name="description" content="Stop maintaining a folder system that becomes a graveyard. Noogat uses AI to tag and organize your notes automatically — so you can find them later without remembering where you put them.">
+  <meta property="og:title" content="How to Organize Notes Without Thinking About It — Noogat" />
+  <meta property="og:description" content="Folder systems don't work. AI auto-tagging does. Here's why your notes end up lost, and how automatic organization fixes it." />
+  <meta property="og:image" content="https://noogat.app/assets/og-image.png" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_shared.css">
+  <style>
+    body { padding-bottom: 6rem; }
+
+    .site-header {
+      padding: 1.75rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .site-header .inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .site-header a { text-decoration: none; color: inherit; }
+    .site-header .wordmark { font-size: 1.4rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+
+    .hero-block { margin-bottom: 3rem; }
+    .hero-block h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-block .lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .cta-button:hover { opacity: 0.9; color: #fff; }
+
+    .article-body h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 2.5rem 0 0.75rem;
+    }
+    .article-body p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .article-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .article-body li { color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .article-body strong { color: var(--text); }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-purple);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout p { margin: 0; color: var(--text-secondary); }
+    .callout strong { color: var(--text); }
+
+    .feature-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 560px) { .feature-comparison { grid-template-columns: 1fr; } }
+    .comparison-col {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .comparison-col h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .comparison-col.bad h3 { color: var(--brand-pink); }
+    .comparison-col.good h3 { color: var(--brand-purple); }
+    .comparison-col li { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.4rem; }
+    .comparison-col ul { padding-left: 1.25rem; margin: 0; }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .cta-block h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .cta-block p { color: var(--text-secondary); margin-bottom: 1.25rem; }
+
+    footer {
+      max-width: 760px;
+      margin: 4rem auto 0;
+      padding: 1.5rem 1.25rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    footer a { color: var(--text-secondary); margin: 0 0.5rem; font-size: 0.85rem; }
+    footer p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+  </style>
+
+  <!-- Privacy-friendly analytics -->
+  <script async src="https://traffic.dayjob.dev/js/pa-rzoUHPXrk_Fzabjb3j1iy.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="wordmark">
+        <img src="/assets/logo-transparent.png" alt="Noogat" width="36" height="36">
+        <span class="wordmark-text">Noogat</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero-block">
+      <h1>Notes that Organize Themselves.</h1>
+      <p class="lead">Stop building folder structures you'll never maintain. Noogat tags every note automatically the moment you capture it — so finding things later doesn't depend on past-you making good decisions.</p>
+      <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Try it free →</a>
+    </div>
+
+    <div class="article-body">
+
+      <h2>The real reason your notes are disorganized</h2>
+      <p>Most people blame themselves. "I just need to be more consistent with my folders." But the problem isn't discipline — it's timing. You capture a note when you have zero time to think about where it goes. You retrieve it when you've forgotten how you categorized it. The system fails because the moment of capture and the moment of retrieval are completely different mental states.</p>
+
+      <p>A folder structure is a bet on future-you remembering how past-you was thinking. It almost never pays off.</p>
+
+      <div class="callout">
+        <p><strong>The search graveyard problem:</strong> Most note apps give you search. But keyword search only works if you remember the words you used when you captured the note. "That productivity thing I read about" doesn't match anything useful. You end up re-googling things you already knew.</p>
+      </div>
+
+      <h2>Why AI tagging works when folders don't</h2>
+      <p>Automatic tagging sidesteps the timing problem entirely. You capture the note; the AI figures out where it belongs. No decisions, no friction, no maintenance.</p>
+
+      <p>Noogat tags every note immediately after you save it — usually within a few seconds. The tags are generated from the content, not from a fixed taxonomy you set up in advance. So if you start capturing notes about a new topic you didn't anticipate, tags for it just appear.</p>
+
+      <div class="feature-comparison">
+        <div class="comparison-col bad">
+          <h3>Manual folders</h3>
+          <ul>
+            <li>You decide where it goes at capture time</li>
+            <li>Taxonomy has to be designed in advance</li>
+            <li>One location per note</li>
+            <li>Breaks down with cross-cutting topics</li>
+            <li>Requires maintenance as your interests change</li>
+          </ul>
+        </div>
+        <div class="comparison-col good">
+          <h3>AI auto-tagging</h3>
+          <ul>
+            <li>Tags are generated from the content</li>
+            <li>Adapts automatically as your notes evolve</li>
+            <li>Multiple tags, no forced choice</li>
+            <li>Works across topics and themes</li>
+            <li>Zero maintenance</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>What good tagging actually looks like</h2>
+      <p>Here's a quick example. You capture: <em>"Pomodoro isn't about the timer — it's about committing to starting. The 25 minutes is just enough time to not feel daunted."</em></p>
+
+      <p>Noogat might tag that with <code>#productivity</code>, <code>#pomodoro</code>, <code>#psychology</code>. Later, when you're thinking about focus techniques, filtering by <code>#productivity</code> shows you this alongside everything else you've captured on the topic — whether that was two days ago or two years ago.</p>
+
+      <p>The tags are colorful, filterable, and visible in the feed. At a glance you can see what you've been thinking about without reading every note.</p>
+
+      <h2>Finding notes you forgot you had</h2>
+      <p>Even with good tagging, keyword search has limits. Noogat's Pro tier adds semantic search — so you can search by meaning instead of specific words.</p>
+
+      <p>Search "something I captured about focus" and Noogat finds notes about concentration, deep work, distraction, and yes — the Pomodoro one — even if none of them contain the word "focus." It's closer to how memory works than how databases work.</p>
+
+      <p>There's also temporal search: "ideas from last week," "notes from this morning," "things I captured in January." Useful when you remember roughly when you had the thought but not what you called it.</p>
+
+      <h2>Capture without friction</h2>
+      <p>The best organization system in the world doesn't help if capturing a note is annoying. Noogat is built around the fastest possible capture path:</p>
+      <ul>
+        <li><strong>Siri:</strong> "Hey Siri, I have a Noogat." The thought is saved before you've finished saying it. No unlocking, no app switching.</li>
+        <li><strong>iOS app:</strong> Tap +, type or dictate, done. The AI handles the rest.</li>
+        <li><strong>Web app:</strong> Works on any device — Mac, PC, tablet.</li>
+      </ul>
+
+      <p>The principle is: make capture so frictionless that you actually do it, then let the AI make the notes findable. You don't have to think about organization at all.</p>
+
+      <h2>How Noogat compares to other note apps</h2>
+      <p>Most note apps give you a canvas and get out of the way. That's fine for intentional, long-form writing. But for fleeting thoughts — the ideas that hit you mid-run, mid-shower, mid-conversation — the friction of opening an app, navigating to the right notebook, and filing things is too high. The thought is gone before you've started typing.</p>
+
+      <p>Apps like Notion, Obsidian, and Bear are excellent for structured notes you intend to maintain. Noogat is for the other 90% — the half-formed thoughts, the quick captures, the "I should look into this" notes that would otherwise disappear. It's a different use case, and it's worth having a tool specifically built for it.</p>
+
+      <div class="callout">
+        <p><strong>A good setup:</strong> Use Noogat for quick capture and retrieval. Move notes that deserve it to your long-form tool when you're ready to develop them. Most notes never need that — and now they won't get lost.</p>
+      </div>
+
+      <h2>For developers: your notes in your coding agent</h2>
+      <p>If you use an AI coding assistant like Claude Code, Cursor, or Claude Desktop, Noogat Pro includes <a href="/mcp/">MCP integration</a>. Connect your noogats to your coding agent so it can search your captured context while you work — architecture decisions, bug patterns, research notes, TODOs — without breaking your flow to look them up manually.</p>
+
+    </div>
+
+    <div class="cta-block">
+      <h2>Try Noogat free.</h2>
+      <p>AI auto-tagging, keyword search, and tag filtering are free forever. No credit card, no time limit.</p>
+      <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Download on the App Store →</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/">Home</a>
+    <a href="/mcp/">MCP Integration</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+    <p>&copy; 2026 Noogat</p>
+  </footer>
+
+</body>
+</html>
