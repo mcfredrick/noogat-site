@@ -164,6 +164,7 @@
     }
     .client-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text); }
     .client-card p { font-size: 0.85rem; margin: 0; color: var(--text-secondary); }
+    .badge-oauth { display: inline-block; background: var(--brand-purple); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 4px; vertical-align: middle; margin-left: 0.35rem; letter-spacing: 0.03em; }
 
     .faq { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem; }
     .faq h2 {
@@ -243,52 +244,62 @@
       <h2>Supported clients</h2>
       <div class="client-grid">
         <div class="client-card">
-          <h3>Claude Code</h3>
-          <p>Anthropic's official CLI. One command to connect.</p>
+          <h3>Claude Code <span class="badge-oauth">OAuth</span></h3>
+          <p>Anthropic's official CLI. One command — browser opens, done. No token to copy.</p>
+        </div>
+        <div class="client-card">
+          <h3>Cursor <span class="badge-oauth">OAuth</span></h3>
+          <p>AI-first code editor. Add the config, connect — browser handles auth.</p>
+        </div>
+        <div class="client-card">
+          <h3>Windsurf <span class="badge-oauth">OAuth</span></h3>
+          <p>Codeium's AI editor. OAuth flow confirmed working.</p>
+        </div>
+        <div class="client-card">
+          <h3>GitHub Copilot <span class="badge-oauth">OAuth</span></h3>
+          <p>VS Code extension. Supports HTTP MCP with browser auth.</p>
         </div>
         <div class="client-card">
           <h3>Claude Desktop</h3>
-          <p>The desktop app. Add a JSON snippet to your config.</p>
-        </div>
-        <div class="client-card">
-          <h3>Cursor</h3>
-          <p>AI-first code editor. Supports MCP servers natively.</p>
-        </div>
-        <div class="client-card">
-          <h3>Windsurf</h3>
-          <p>Codeium's AI editor. Uses <code>serverUrl</code> syntax — see setup below.</p>
+          <p>The desktop app. Add a JSON snippet with your API token.</p>
         </div>
         <div class="client-card">
           <h3>Codex CLI</h3>
-          <p>OpenAI's terminal agent. Configure in <code>~/.codex/config.toml</code>.</p>
-        </div>
-        <div class="client-card">
-          <h3>GitHub Copilot</h3>
-          <p>VS Code extension. Supports HTTP MCP servers via <code>.vscode/mcp.json</code>.</p>
+          <p>OpenAI's terminal agent. Configure in <code>~/.codex/config.toml</code> with an API token.</p>
         </div>
       </div>
     </div>
 
     <div class="section">
       <h2>How to connect Noogat</h2>
-      <p>You'll need a Noogat Pro account. Once you have one, go to <a href="https://app.noogat.app/settings/integrations"><strong>Settings → MCP Integration</strong></a> in the web app to generate an API token, then follow the setup instructions for your client.</p>
+      <p>You'll need a Noogat Pro account. Most clients support OAuth — your browser handles auth automatically. No token to copy, nothing to paste into a config file.</p>
 
-      <p><strong>Claude Code</strong> — paste this in your terminal:</p>
-      <div class="code-block">claude mcp add noogat --transport http https://app.noogat.app/mcp --header "Authorization: Bearer YOUR_TOKEN"</div>
+      <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--text);">OAuth setup (Claude Code, Cursor, Windsurf, GitHub Copilot)</h3>
 
-      <p><strong>Claude Desktop / Cursor / GitHub Copilot</strong> — add to your <code>mcpServers</code> config:</p>
+      <p><strong>Claude Code</strong> — run in your terminal:</p>
+      <div class="code-block">claude mcp add noogat --transport http https://app.noogat.app/mcp</div>
+      <p>Claude Code will open your browser to authorize. Sign in if needed, click Authorize, and you're connected.</p>
+
+      <p><strong>Cursor / GitHub Copilot</strong> — add to your <code>mcpServers</code> config (no token needed):</p>
+      <div class="code-block">"noogat": {
+  "type": "http",
+  "url": "https://app.noogat.app/mcp"
+}</div>
+
+      <p><strong>Windsurf</strong> — add to <code>~/.codeium/windsurf/mcp_config.json</code>:</p>
+      <div class="code-block">"noogat": {
+  "type": "streamable-http",
+  "serverUrl": "https://app.noogat.app/mcp"
+}</div>
+      <p>On first connect, your browser will open to authorize. Restart the client after adding the config.</p>
+
+      <h3 style="font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--text);">Manual token setup (Claude Desktop, Codex CLI, or any client)</h3>
+      <p>Go to <a href="https://app.noogat.app/settings/integrations"><strong>Settings → MCP Integration</strong></a> in the web app to generate an API token, then add it to your client config.</p>
+
+      <p><strong>Claude Desktop</strong> — add to your <code>mcpServers</code> config:</p>
       <div class="code-block">"noogat": {
   "type": "http",
   "url": "https://app.noogat.app/mcp",
-  "headers": {
-    "Authorization": "Bearer YOUR_TOKEN"
-  }
-}</div>
-
-      <p><strong>Windsurf</strong> — uses <code>serverUrl</code> instead of <code>url</code>. Add to <code>~/.codeium/windsurf/mcp_config.json</code>:</p>
-      <div class="code-block">"noogat": {
-  "type": "streamable-http",
-  "serverUrl": "https://app.noogat.app/mcp",
   "headers": {
     "Authorization": "Bearer YOUR_TOKEN"
   }
@@ -301,8 +312,6 @@ url = "https://app.noogat.app/mcp"
 
 [mcp_servers.noogat.headers]
 Authorization = "Bearer YOUR_TOKEN"</div>
-
-      <p>Restart your AI client after connecting. Noogat will appear in the tools list and your agent can start searching your notes immediately.</p>
     </div>
 
     <div class="section">
@@ -320,10 +329,10 @@ Authorization = "Bearer YOUR_TOKEN"</div>
       <h2>Is it secure?</h2>
       <p>Yes. A few things worth knowing:</p>
       <ul>
-        <li>Your API token is specific to you and can be revoked any time from the integrations page.</li>
-        <li>The MCP server only has read access to your noogats — it cannot create, edit, or delete anything.</li>
-        <li>Connections are authenticated on every request. There's no persistent session to intercept.</li>
-        <li>Your token never leaves your device — you paste it into your local client config, and it goes directly to Noogat's servers over HTTPS. Nothing is stored in Noogat's logs.</li>
+        <li>With OAuth, your token is issued automatically and stored by your AI client — you never see it or copy it anywhere.</li>
+        <li>Tokens are specific to you and can be revoked any time from <a href="https://app.noogat.app/settings/integrations">Settings → MCP Integration</a>.</li>
+        <li>Connections are authenticated on every request over HTTPS. There's no persistent session to intercept.</li>
+        <li>The agent can search, capture, update, and delete noogats — the same things you can do manually. It only acts when you ask it to.</li>
       </ul>
     </div>
 
@@ -340,11 +349,11 @@ Authorization = "Bearer YOUR_TOKEN"</div>
         <dt>Does the AI agent see all my noogats?</dt>
         <dd>It can search and retrieve your noogats when asked, but it doesn't bulk-load them all at once. The agent pulls noogats on demand, the same way a search would.</dd>
 
-        <dt>What if I delete the token?</dt>
-        <dd>Any client using that token will immediately lose access. You can generate a new token any time from Settings → MCP Integration.</dd>
+        <dt>What if I revoke a token?</dt>
+        <dd>Any client using that token immediately loses access. With OAuth clients you can just re-run the connect command and authorize again — a fresh token is issued automatically.</dd>
 
         <dt>I don't use Claude Code — can I still use this?</dt>
-        <dd>Yes. Noogat works with Claude Code, Claude Desktop, Cursor, Windsurf, GitHub Copilot, and OpenAI Codex CLI. The setup instructions for each are in the section above — Windsurf and Codex use slightly different config syntax, but it's a one-time copy-paste.</dd>
+        <dd>Yes. Cursor, Windsurf, and GitHub Copilot all support the OAuth flow. Claude Desktop and Codex CLI use manual token setup — instructions for both are in the section above.</dd>
       </dl>
     </div>
 
