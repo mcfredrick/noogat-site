@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/logo-black.png">
+  <title>Noogat for Developers — Notes That Work With Your AI Coding Agent</title>
+  <meta name="description" content="Noogat captures your ideas with Siri and makes them searchable from inside Claude Code, Cursor, or Claude Desktop via MCP. The note-taking app built for developers who think fast and code faster.">
+  <meta property="og:title" content="Noogat for Developers" />
+  <meta property="og:description" content="Capture ideas with Siri. Retrieve them inside Claude Code via MCP. Noogat is the note-taking app built for the way developers actually think." />
+  <meta property="og:image" content="https://noogat.app/assets/og-image.png" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Mono:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_shared.css">
+  <style>
+    body { padding-bottom: 6rem; }
+
+    .site-header {
+      padding: 1.75rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .site-header .inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .site-header a { text-decoration: none; color: inherit; }
+    .site-header .wordmark { font-size: 1.4rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+
+    .hero-block { margin-bottom: 3rem; }
+    .hero-block h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-block .lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .cta-button:hover { opacity: 0.9; color: #fff; }
+    .cta-secondary { color: var(--brand-purple); font-size: 0.9rem; text-decoration: none; }
+
+    .article-body h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 2.5rem 0 0.75rem;
+    }
+    .article-body p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .article-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .article-body li { color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .article-body strong { color: var(--text); }
+    .article-body a { color: var(--brand-purple); }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .feature-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .feature-item .icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+    .feature-item h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .feature-item p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+    .feature-item .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-left: 0.25rem;
+    }
+
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      color: var(--text);
+      margin: 0.75rem 0;
+    }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-purple);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout p { margin: 0; color: var(--text-secondary); }
+    .callout strong { color: var(--text); }
+
+    .workflow-steps {
+      counter-reset: wf;
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .workflow-steps li {
+      counter-increment: wf;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .workflow-steps li::before {
+      content: counter(wf);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.75rem;
+      height: 1.75rem;
+      background: linear-gradient(135deg, #7C22D9, #C91B5B);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .workflow-steps li span { color: var(--text-secondary); }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .cta-block h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .cta-block p { color: var(--text-secondary); margin-bottom: 1.25rem; }
+
+    footer {
+      max-width: 760px;
+      margin: 4rem auto 0;
+      padding: 1.5rem 1.25rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    footer a { color: var(--text-secondary); margin: 0 0.5rem; font-size: 0.85rem; }
+    footer p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+  </style>
+
+  <script async src="https://traffic.dayjob.dev/js/pa-rzoUHPXrk_Fzabjb3j1iy.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="wordmark">
+        <img src="/assets/logo-transparent.png" alt="Noogat" width="36" height="36">
+        <span class="wordmark-text">Noogat</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero-block">
+      <h1>The note-taking app that works inside your AI coding agent.</h1>
+      <p class="lead">Capture ideas hands-free with Siri. Retrieve them inside Claude Code, Claude Desktop, or Cursor via MCP — without breaking your flow to dig through another app.</p>
+      <div class="cta-row">
+        <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Download free →</a>
+        <a href="/mcp/" class="cta-secondary">MCP integration docs →</a>
+      </div>
+    </div>
+
+    <div class="article-body">
+
+      <h2>The developer note-taking problem</h2>
+      <p>You think of things at the wrong times. Architecture insight in the shower. Bug hypothesis mid-run. The right approach to a refactor while you're doing something completely unrelated. By the time you're back at your desk, it's gone — or you waste five minutes reconstructing it.</p>
+      <p>And even when you do capture notes, retrieving them means context-switching out of your coding session to search another app. You lose the thread. You lose time.</p>
+
+      <div class="callout">
+        <p><strong>Noogat closes both gaps:</strong> Siri capture for the moment of insight, MCP integration so your AI agent can search your notes without you leaving the terminal.</p>
+      </div>
+
+      <h2>What Noogat does</h2>
+      <div class="feature-strip">
+        <div class="feature-item">
+          <span class="icon">🎙️</span>
+          <h3>Siri capture</h3>
+          <p>"Hey Siri, I have a Noogat" — saved instantly, no app opening required.</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🏷️</span>
+          <h3>AI auto-tagging</h3>
+          <p>Every note tagged automatically. No folder decisions, no maintenance.</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✨</span>
+          <h3>Semantic search <span class="badge">PRO</span></h3>
+          <p>Find notes by meaning, not exact keywords.</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">📅</span>
+          <h3>Search by time <span class="badge">PRO</span></h3>
+          <p>"Notes from last week" — temporal search that actually works.</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🔌</span>
+          <h3>MCP integration <span class="badge">PRO</span></h3>
+          <p>Search your noogats from inside Claude Code, Claude Desktop, or Cursor.</p>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🌐</span>
+          <h3>Web + iOS</h3>
+          <p>iOS app for capture, web app for review — synced across both.</p>
+        </div>
+      </div>
+
+      <h2>The MCP workflow</h2>
+      <p>Once you connect Noogat to your AI client, you can ask your agent to search your notes directly. No alt-tab, no breaking context, no re-explaining what you already captured.</p>
+
+      <p>A typical setup looks like this:</p>
+      <ol class="workflow-steps">
+        <li><span>Capture a note on your phone: "Hey Siri, I have a Noogat — the auth refresh is failing on mobile because the session expires before the token can be refreshed, look at the timing in APIClient."</span></li>
+        <li><span>Three days later, you're debugging a related issue in Claude Code.</span></li>
+        <li><span>You ask Claude: "Do I have any notes about auth refresh timing?"</span></li>
+        <li><span>Noogat's MCP server finds the note and returns it to Claude's context. You pick up the thread exactly where you left it.</span></li>
+      </ol>
+
+      <p><strong>Claude Code setup</strong> — one command:</p>
+      <div class="code-block">claude mcp add noogat --transport http https://app.noogat.app/mcp --header "Authorization: Bearer YOUR_TOKEN"</div>
+
+      <p>Generate your token from Settings → MCP Integration in the app or web UI. Full setup guide: <a href="/mcp/">noogat.app/mcp</a>.</p>
+
+      <h2>What kinds of notes work well</h2>
+      <p>Noogat is best for fast, freeform captures you'll want to retrieve later. Developer-specific things that work well:</p>
+      <ul>
+        <li><strong>Architecture decisions.</strong> Why you made a call, what you ruled out, what you'd do differently. Searchable six months later when the question comes up again.</li>
+        <li><strong>Bug hypotheses.</strong> "I think the memory leak is in the image cache — check the eviction policy." Capture it before it disappears; find it when you're ready to dig in.</li>
+        <li><strong>Research fragments.</strong> Things you read, half-understood, want to revisit. Tagged automatically, findable by meaning.</li>
+        <li><strong>TODOs that don't belong in the issue tracker.</strong> The "I should clean this up later" thoughts that never make it into Jira.</li>
+        <li><strong>Things you learned.</strong> The non-obvious thing you figured out about a library, an API, a pattern. Your own personal TIL log.</li>
+      </ul>
+
+      <h2>How it compares to other options</h2>
+      <p><strong>Notion/Obsidian:</strong> Great for structured, intentional notes. Not for quick capture on the go, and neither has a native Siri command. MCP servers exist for both but require more setup and they're general-purpose tools not optimized for fast retrieval.</p>
+      <p><strong>Apple Notes:</strong> Built-in and fast to open, but no AI tagging, no semantic search, and no MCP integration. Good for shopping lists, not for a growing knowledge base.</p>
+      <p><strong>Voice Memos:</strong> Captures audio, not text. You have to listen back or transcribe manually. Not searchable.</p>
+      <p>Noogat is a smaller, sharper tool: optimized for the capture → retrieve loop, with MCP as a first-class integration rather than an afterthought.</p>
+
+    </div>
+
+    <div class="cta-block">
+      <h2>Free to start. MCP on Pro.</h2>
+      <p>Download the iOS app free — Siri capture, AI tagging, and keyword search included. Upgrade to Pro for MCP integration, semantic search, and search by time.</p>
+      <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Download on the App Store →</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/">Home</a>
+    <a href="/mcp/">MCP Integration</a>
+    <a href="/siri-voice-notes/">Voice Capture</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <p>&copy; 2026 Noogat</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/logo-black.png">
+  <title>Hands-Free Voice Notes with Siri on iPhone | Noogat</title>
+  <meta name="description" content="Say 'Hey Siri, I have a Noogat' and your note is saved instantly — no unlocking, no app switching. The only note-taking app built specifically for Siri hands-free capture.">
+  <meta property="og:title" content="Hands-Free Voice Notes with Siri — Noogat" />
+  <meta property="og:description" content="Capture thoughts hands-free on iPhone using Siri. No app switching, no unlocking, no losing your train of thought. AI auto-tags everything so you can find it later." />
+  <meta property="og:image" content="https://noogat.app/assets/og-image.png" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_shared.css">
+  <style>
+    body { padding-bottom: 6rem; }
+
+    .site-header {
+      padding: 1.75rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .site-header .inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .site-header a { text-decoration: none; color: inherit; }
+    .site-header .wordmark { font-size: 1.4rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+
+    .hero-block { margin-bottom: 3rem; }
+    .hero-block h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .siri-phrase {
+      display: inline-block;
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-block .lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #7C22D9, #C91B5B);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .cta-button:hover { opacity: 0.9; color: #fff; }
+    .cta-secondary {
+      color: var(--brand-purple);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .article-body h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 2.5rem 0 0.75rem;
+    }
+    .article-body p { color: var(--text-secondary); margin-bottom: 1rem; }
+    .article-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .article-body li { color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .article-body strong { color: var(--text); }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand-purple);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout p { margin: 0; color: var(--text-secondary); font-style: italic; }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .scenario-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .scenario-card .emoji { font-size: 1.75rem; margin-bottom: 0.5rem; display: block; }
+    .scenario-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+    .scenario-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+    .steps {
+      counter-reset: steps;
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .steps li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    .steps li::before {
+      content: counter(steps);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.75rem;
+      height: 1.75rem;
+      background: linear-gradient(135deg, #7C22D9, #C91B5B);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .cta-block h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .cta-block p { color: var(--text-secondary); margin-bottom: 1.25rem; }
+
+    footer {
+      max-width: 760px;
+      margin: 4rem auto 0;
+      padding: 1.5rem 1.25rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    footer a { color: var(--text-secondary); margin: 0 0.5rem; font-size: 0.85rem; }
+    footer p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+  </style>
+
+  <script async src="https://traffic.dayjob.dev/js/pa-rzoUHPXrk_Fzabjb3j1iy.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="wordmark">
+        <img src="/assets/logo-transparent.png" alt="Noogat" width="36" height="36">
+        <span class="wordmark-text">Noogat</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero-block">
+      <h1><span class="siri-phrase">"Hey Siri, I have a Noogat."</span><br>Note saved. Done.</h1>
+      <p class="lead">No unlocking your phone. No opening an app. No losing the thought while you fidget with your screen. The idea is saved before the moment passes.</p>
+      <div class="cta-row">
+        <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Download free →</a>
+        <a href="/organize-notes/" class="cta-secondary">How Noogat organizes your notes →</a>
+      </div>
+    </div>
+
+    <div class="article-body">
+
+      <h2>Why voice notes fail — and how Noogat fixes it</h2>
+      <p>Most voice note apps make you unlock your phone, open the app, tap record, speak, tap stop, and then file it somewhere. By the time you've done all that, the thought is either gone or you've lost the thread of whatever you were doing when it struck.</p>
+      <p>Noogat is built around a single Siri command. You say it, the note exists. No steps in between.</p>
+
+      <div class="callout">
+        <p>"I had the idea while driving. I said it to Siri. Three seconds later it was in Noogat, tagged, searchable. I didn't touch my phone once."</p>
+      </div>
+
+      <h2>Where this actually matters</h2>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <span class="emoji">🚗</span>
+          <h3>Driving</h3>
+          <p>Eyes on the road. Thought in the app. No pulling over, no fumbling.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="emoji">🏃</span>
+          <h3>Running</h3>
+          <p>Ideas hit hardest when you can't stop. Say it, keep moving.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="emoji">🚿</span>
+          <h3>Shower thoughts</h3>
+          <p>Phone's not in the bathroom. AirPods might be. The idea survives.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="emoji">🛏️</span>
+          <h3>Falling asleep</h3>
+          <p>That 11pm idea that vanishes by morning? Captured without turning the light on.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="emoji">🍳</span>
+          <h3>Mid-task</h3>
+          <p>Both hands busy. Brain firing anyway. Just say it.</p>
+        </div>
+        <div class="scenario-card">
+          <span class="emoji">🧠</span>
+          <h3>Mid-conversation</h3>
+          <p>You thought of something while someone was talking. Save it without being rude.</p>
+        </div>
+      </div>
+
+      <h2>How to set it up (takes about 60 seconds)</h2>
+      <ol class="steps">
+        <li>Download Noogat from the App Store and create a free account.</li>
+        <li>Noogat registers the "I have a Noogat" shortcut with Siri automatically — no setup needed.</li>
+        <li>Say <strong>"Hey Siri, I have a Noogat"</strong> and speak your thought when prompted.</li>
+        <li>That's it. The note appears in Noogat within seconds, AI-tagged and ready to search.</li>
+      </ol>
+
+      <p>There's no shortcut to configure, no permissions to wrangle beyond the usual. If Siri works on your phone, the Noogat command works too.</p>
+
+      <h2>What happens to the note after you capture it</h2>
+      <p>This is where Noogat differs from a plain voice memo app. After you capture a noogat, the AI reads what you said and tags it automatically — usually within a few seconds. A thought about a project gets tagged with the project name. A book idea gets tagged with the genre. A random observation gets whatever tag fits best.</p>
+      <p>You never have to decide where things go. You just find them later — by tag, by keyword, or if you're on Pro, by meaning and time range.</p>
+
+      <h2>Does this work without saying "I have a Noogat"?</h2>
+      <p>Yes. If Siri isn't handy — or you're somewhere quiet — you can open the app and type or dictate directly. The web app at <a href="https://app.noogat.app">app.noogat.app</a> works on any device too. But honestly, the Siri command is the whole point. It's what makes capturing a thought feel as fast as having one.</p>
+
+      <h2>Privacy</h2>
+      <p>Your noogats are yours. We don't sell your data, we don't run ads, and we don't use your notes to train models. The AI tagging happens server-side using a free inference model, but the content isn't retained beyond processing. See our <a href="/privacy/">Privacy Policy</a> for the full picture.</p>
+
+    </div>
+
+    <div class="cta-block">
+      <h2>Stop losing good ideas.</h2>
+      <p>Free to download. Works with Siri out of the box. Takes 60 seconds to set up.</p>
+      <a href="https://apps.apple.com/app/noogat/id6768415092" class="cta-button">Download on the App Store →</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/">Home</a>
+    <a href="/organize-notes/">How Notes Get Organized</a>
+    <a href="/mcp/">MCP Integration</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <p>&copy; 2026 Noogat</p>
+  </footer>
+
+</body>
+</html>
