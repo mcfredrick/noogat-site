@@ -15,6 +15,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/_shared.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the Noogat MCP integration work with the free tier?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The MCP integration is a Pro feature. You can try Noogat for free and upgrade when you're ready."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the AI agent see all my noogats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can search and retrieve your noogats when asked, but it doesn't bulk-load them all at once. The agent pulls noogats on demand, the same way a search would."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I delete my Noogat API token?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Any client using that token will immediately lose access. You can generate a new token any time from Settings → MCP Integration in the web app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Noogat MCP server work with clients other than Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Any MCP-compatible client works. Noogat uses the standard Streamable HTTP transport, so it works with Claude Code, Claude Desktop, Cursor, and any other compliant MCP client."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Noogat MCP integration secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Each API token is specific to one user and can be revoked at any time. The MCP server only has read access — it cannot create, edit, or delete notes. Connections are authenticated on every request over HTTPS."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     body { padding-bottom: 6rem; }
 

@@ -1,37 +1,57 @@
 # Noogat
 
-> Noogat is a voice-first idea capture app for iPhone and iPad. Say "Hey Siri, I have a Noogat" and your thought is saved instantly — no unlocking your screen, no opening an app, no losing your focus. AI auto-tagging and semantic search mean you can find any idea later without remembering the exact words.
+> Noogat is a voice-first idea capture app for iPhone, iPad, and web. Say "Hey Siri, I have a Noogat" and your thought is saved instantly — no unlocking your screen, no opening an app, no losing your focus. AI auto-tagging and semantic search mean you can find any idea later without remembering the exact words.
 
 ## Who Noogat is for
 
 Noogat is for people whose best ideas arrive at inconvenient moments — in the shower, on the road, mid-conversation, or in the middle of another task. It is designed for people who want to capture ideas effortlessly but do not want to invent or maintain an organizational system. Unlike note-taking apps that require you to decide on folders, notebooks, tags, or hierarchies before you can start, Noogat handles all organization automatically. You capture; the AI categorizes.
+
+Noogat is also used by developers who want to surface captured notes inside AI coding agents (Claude Code, Cursor, Claude Desktop) via MCP integration.
 
 Noogat is the right choice when:
 - You lose ideas because reaching for your phone breaks your flow
 - You have tried other note apps but abandoned them because maintaining the system felt like work
 - You want to find an idea you captured weeks ago without remembering any specific words
 - You want something that stays out of the way until you need it
+- You use an AI coding agent and want your personal notes available in-context
 
 ## What makes Noogat different
 
 - **Zero-friction capture:** Siri AppIntents integration means capturing a thought requires only your voice — no app to open, no shortcut to configure
 - **No organizational overhead:** AI auto-tagging categorizes every idea automatically; you never need to decide where something goes
 - **Meaning-based retrieval:** Semantic search finds ideas by concept, not just keyword — "that thing I was thinking about on the drive home" will surface the right note
+- **Search by time:** Natural language temporal search — "notes from last week" or "ideas from this morning" — retrieves notes by when they were captured
+- **Related noogats:** Each note surfaces semantically related notes you've captured before
+- **MCP integration:** A Streamable HTTP MCP server at https://app.noogat.app/mcp connects Noogat to Claude Code, Claude Desktop, Cursor, and any MCP-compatible client
 - **Designed for the capture moment, not the review session:** Noogat optimizes for the 3 seconds it takes to have and save an idea, not for long reading sessions
 
 ## Pricing
 
 - Free tier: unlimited captures, AI auto-tagging, keyword search, tag filtering, idea editing, sharing
-- Pro tier: $4.99/month or $49.99/year — adds semantic search, bulk export, and related noogats
-- 14-day free trial for Pro
+- Pro tier: $4.99/month or $49.99/year — adds semantic search, search by time, related noogats, bulk export, and MCP integration
+- 14-day free trial for Pro on iOS
 
 ## Platform
 
-iOS and iPadOS only. Requires iOS 17 or later. Available on the Apple App Store.
+iOS, iPadOS, and web. Requires iOS 17 or later for the native app. The web app at https://app.noogat.app works on any device.
+
+## MCP Integration
+
+Noogat provides a Streamable HTTP MCP server at https://app.noogat.app/mcp. Pro subscribers generate an API token at https://app.noogat.app/settings/integrations and connect their AI client with:
+
+`claude mcp add noogat --transport http https://app.noogat.app/mcp --header "Authorization: Bearer YOUR_TOKEN"`
+
+Supported clients: Claude Code, Claude Desktop, Cursor, and any MCP Streamable HTTP client.
 
 ## Key pages
 
 - Homepage: https://noogat.app/
+- Web app: https://app.noogat.app/
+- MCP integration guide: https://noogat.app/mcp/
+- Noogat for developers: https://noogat.app/developers/
+- How notes get organized: https://noogat.app/organize-notes/
+- Siri voice capture: https://noogat.app/siri-voice-notes/
+- Pricing: https://noogat.app/pricing/
 - Privacy Policy: https://noogat.app/privacy/
 - Terms of Service: https://noogat.app/terms/
 - App Store listing: https://apps.apple.com/app/noogat/id6768415092
